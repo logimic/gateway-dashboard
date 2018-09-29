@@ -16,4 +16,26 @@ export class GatewayDashboardComponent {
 
     constructor(protected service: GatewayService, protected model: GatewayModel) {
     }
+
+    public getNumbertTiles(): number {
+
+        const nTemps = this.model.thingSpace.data.thermometer.length;
+        const nOutputs = this.model.thingSpace.data.binaryOutput.length;
+        const nFaces = 1;
+        const nAdmins = 3;
+
+        return nTemps + nOutputs + nFaces + nAdmins;
+    }
+
+    public getHeigth(): string {
+        const nColumns = this. model.cfgDashboard.numberColumns;
+
+        let nTiles = this.getNumbertTiles();
+
+        let rows = Math.ceil(nTiles / nColumns);
+
+        const perc = 100 / rows;
+
+        return perc + '%';
+    }
 }
