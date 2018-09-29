@@ -3,7 +3,7 @@ Nice dashboard for OpenEdgeGateway.
 
 # Prerequisites
 
-1. **npm**
+1. **npm & node.js**
 How to install is here: https://blog.npmjs.org/post/85484771375/how-to-install-npm
 
 2. **Angular cli**
