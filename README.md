@@ -35,7 +35,7 @@ ng serve
 ```
 3. Open browser **http://localhost:4200/**
 
-### B. With https://www.npmjs.com/package/local-web-server
+### B. With Local Web Server https://www.npmjs.com/package/local-web-server
 ```
 $ npm install -g local-web-server
 $ cd <your-app-folder>
