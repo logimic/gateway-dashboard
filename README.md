@@ -6,7 +6,7 @@ Nice dashboard for OpenEdgeGateway.
 1. **npm & node.js**
 How to install is here: https://blog.npmjs.org/post/85484771375/how-to-install-npm
 
-2. **Angular cli**
+2. **Angular cli** https://github.com/angular/angular-cli
 
 * Latest recommended version for build is 1.4.3., install it this way:
 ```
@@ -14,7 +14,6 @@ npm uninstall -g @angular/cli
 npm cache verify
 npm install -g @angular/cli
 ```
-* More https://github.com/angular/angular-cli
 
 # Setup gateway-dashboard on your machine
 
