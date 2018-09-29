@@ -11,8 +11,7 @@ How to install is here: https://blog.npmjs.org/post/85484771375/how-to-install-n
 * Latest recommended version for build is 1.4.3., install it this way:
 ```
 npm uninstall -g @angular/cli
-npm cache clean
-# if npm version is > 5 then use `npm cache verify` to avoid errors (or to avoid using --force)
+npm cache verify
 npm install -g @angular/cli@1.4.3
 ```
 * More https://github.com/angular/angular-cli
