@@ -10,6 +10,9 @@ import { GatewayService } from '../gateway/gateway.service';
 export class GatewayTempComponent {
 
     @Input()
+    public name = 'no-name';   
+    
+    @Input()
     public temp = 0;
 
     @Input()

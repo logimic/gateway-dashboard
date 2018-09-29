@@ -17,7 +17,7 @@
        
         <span *ngFor="let temp of this.model.thingSpace.data.thermometer">
             <mat-grid-tile>
-                    <app-gateway-temp-component [temp]="temp.temperature"></app-gateway-temp-component>
+                    <app-gateway-temp-component [name]="temp.name" [temp]="temp.temperature"></app-gateway-temp-component>
             </mat-grid-tile>
         </span>
 
