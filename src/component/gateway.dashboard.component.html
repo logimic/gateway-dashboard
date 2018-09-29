@@ -1,0 +1,43 @@
+
+
+<mat-grid-list cols={{this.model.cfgDashboard.numberColumns}} rowHeight={{this.model.cfgDashboard.heightRow}}>
+
+
+    <mat-grid-tile>
+        <span *ngIf="this.model.status.onlineStatus === true; else NotOnline">
+            <app-gateway-info-component [online]="this.model.status.onlineStatus"></app-gateway-info-component>
+        </span>
+        
+        <ng-template #NotOnline>
+            <app-gateway-info-component [online]="this.model.status.onlineStatus" style="background:rgb(120, 121, 122);"></app-gateway-info-component>
+        </ng-template>
+    </mat-grid-tile>
+
+    <span *ngIf="this.model.status.onlineStatus === true">
+       
+        <span *ngFor="let temp of this.model.thingSpace.data.thermometer">
+            <mat-grid-tile>
+                    <app-gateway-temp-component [temp]="temp.temperature"></app-gateway-temp-component>
+            </mat-grid-tile>
+        </span>
+
+       
+        <span *ngFor="let binOut of this.model.thingSpace.data.binaryOutput">
+            <mat-grid-tile>
+                    <app-gateway-binout-component [name]="binOut.name" [output]="binOut.output"></app-gateway-binout-component>
+            </mat-grid-tile>
+        </span>    
+
+      
+        <span *ngFor="let faceRec of this.model.thingSpace.data.faceRecognition">
+            <mat-grid-tile>
+                    <app-gateway-facerec-component [name]="'Face Recognition'" [nFaces]="faceRec.faces.length"></app-gateway-facerec-component>
+            </mat-grid-tile>
+        </span>     
+    </span>   
+    <mat-grid-tile [colspan]="2">
+        <app-gateway-about-component></app-gateway-about-component>
+    </mat-grid-tile>
+
+ </mat-grid-list>
+

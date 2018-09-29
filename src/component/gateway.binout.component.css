@@ -1,0 +1,13 @@
+
+@import 'https://fonts.googleapis.com/css?family=Barlow+Condensed';
+@import 'https://fonts.googleapis.com/css?family=Syncopate';
+@import 'https://fonts.googleapis.com/css?family=Trade+Winds';
+
+.tempText{
+  color: rgb(29, 78, 143);
+  width: 100%;
+  text-align: center;    
+  font: 18px 'Trade Winds', cursive;
+  vertical-align: middle;
+  margin-left: 10px;
+}
