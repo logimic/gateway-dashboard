@@ -17,15 +17,18 @@ npm install -g @angular/cli@1.4.3
 ```
 * More https://github.com/angular/angular-cli
 
-# Install
+# Setup gateway-dashboard on tour machine
+
 1. Pull this repository
 2. Open terminal/command line and go to main folder.
 3. Run command
+
 ```
 npm install
 ```
 
 # Run
+
 1.  Open terminal/command line in main folder.
 2. Run server
 ```
