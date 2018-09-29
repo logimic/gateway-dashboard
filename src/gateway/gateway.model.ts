@@ -38,7 +38,6 @@ export interface ConfigWS {
 
 export interface ConfigDashboard {
     numberColumns: number;
-    heightRow: string;
 }
 
 export interface ThingSpaceRecord {
@@ -97,8 +96,7 @@ export class GatewayModel  {
     };
 
     public cfgDashboard: ConfigDashboard = {
-        numberColumns: 4,
-        heightRow: '150px'
+        numberColumns: 4
     };
 
     constructor (protected service: GatewayService) {

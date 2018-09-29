@@ -3,15 +3,14 @@
 @import 'https://fonts.googleapis.com/css?family=Syncopate';
 @import 'https://fonts.googleapis.com/css?family=Trade+Winds';
 
-.tempText{  
+.textMain{  
   color: rgb(29, 78, 143);
   text-align: right;    
-
   font: 40px 'Trade Winds', cursive;  
   
 }
 
-.tempNameText{  
+.textName{  
   position: absolute;
   display: block;
   color: rgb(29, 78, 143);
@@ -20,10 +19,10 @@
   top: 60%;
 }
 
-.logo {
-    position: absolute;
-    display: block;
-    left: 5px;
-    top: 25%;
-    z-index: 3;
+.imgMain {
+  position: absolute;
+  display: block;  
+     content: url("../theme/temp.png");
+     width: 40%;
+     left: 5px;
 }

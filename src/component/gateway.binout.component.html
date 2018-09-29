@@ -1,3 +1,17 @@
-<div class="tempText"> 
-    {{name}} is {{output}}
+
+ <div *ngIf="this.output">
+    <img  class="imgMainOn">
+ </div>
+
+ <div *ngIf="!this.output">
+    <img  class="imgMainOff">
+ </div> 
+
+<div class="textMain">
+    <span *ngIf="this.output"> On </span>  
+    <span *ngIf="!this.output"> Off </span>  
+</div>
+
+<div class="textName"> 
+    {{this.name}}
 </div>

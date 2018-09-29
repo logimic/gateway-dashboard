@@ -28,6 +28,9 @@ export class GatewayDashboardComponent {
     }
 
     public getHeigth(): string {
+
+        if (!this.model.status.onlineStatus) return '200px';
+
         const nColumns = this. model.cfgDashboard.numberColumns;
 
         let nTiles = this.getNumbertTiles();

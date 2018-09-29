@@ -3,11 +3,38 @@
 @import 'https://fonts.googleapis.com/css?family=Syncopate';
 @import 'https://fonts.googleapis.com/css?family=Trade+Winds';
 
-.tempText{
+.textMain{  
+  position: absolute;
+  display: block;
   color: rgb(29, 78, 143);
-  width: 100%;
-  text-align: center;    
-  font: 18px 'Trade Winds', cursive;
-  vertical-align: middle;
-  margin-left: 10px;
+  text-align: left;    
+  font: 40px 'Trade Winds', cursive;  
+  
+}
+
+.textName{  
+  position: absolute;
+  display: block;
+  color: rgb(29, 78, 143);
+  font: 30px 'Trade Winds', cursive;  
+  text-align: left;  
+  top: 60%;
+}
+
+.imgMainOn {
+
+  display: block;  
+  content: url("../theme/bulbOn.png");
+  width: 40%;
+  left: 5px;
+  vertical-align:middle;
+}
+
+.imgMainOff {
+
+  display: block;  
+  content: url("../theme/bulbOff.png");
+  width: 40%;
+  left: 5px;  
+  vertical-align:middle;
 }

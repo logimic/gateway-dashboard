@@ -18,8 +18,7 @@ export class GatewayService {
     };
 
     public cfgDashboard: ConfigDashboard = {
-        numberColumns: 3,
-        heightRow: '150px'
+        numberColumns: 3
     };
 
     //msgArray: Msg[];
@@ -56,7 +55,6 @@ export class GatewayService {
         const path = './assets/cfg/dashboardConfig.json';
         this.http.get(path).subscribe(data => {
             this.cfgDashboard.numberColumns = data.json().numberColumns;
-            this.cfgDashboard.heightRow = data.json().heightRow;
 
             this.emitorConfigDashboard$.emit(this.cfgDashboard);
         });
