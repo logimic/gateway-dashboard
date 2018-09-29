@@ -7,7 +7,6 @@ import * as iqrfApi from './iqrf-api';
 import * as oegwApi from './oegw-api';
 import * as oegwThings from './oegw-things';
 import { debugOutputAstAsTypeScript } from '@angular/compiler';
-import { Temperature } from '../../../oegateway/api/Typescript/temperature-1-0-0';
 
 export interface ServerStatus {
     cncStatus: number;      // status cnc core
