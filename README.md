@@ -12,7 +12,7 @@ How to install is here: https://blog.npmjs.org/post/85484771375/how-to-install-n
 ```
 npm uninstall -g @angular/cli
 npm cache verify
-npm install -g @angular/cli@1.4.3
+npm install -g @angular/cli
 ```
 * More https://github.com/angular/angular-cli
 
