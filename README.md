@@ -27,7 +27,7 @@ npm install
 
 # Run
 
-### With Angular
+### A. With Angular
 1.  Open terminal/command line in main folder.
 2. Run server
 ```
@@ -35,7 +35,7 @@ ng serve
 ```
 3. Open browser **http://localhost:4200/**
 
-### With https://www.npmjs.com/package/local-web-server
+### B. With https://www.npmjs.com/package/local-web-server
 ```
 $ npm install -g local-web-server
 $ cd <your-app-folder>
