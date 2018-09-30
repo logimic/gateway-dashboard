@@ -7,9 +7,7 @@ import { GatewayService } from '../gateway/gateway.service';
     templateUrl: 'gateway.dashboard.component.html',
     styleUrls: ['gateway.dashboard.component.css']
 })
-export class GatewayDashboardComponent {
-
-
+export class GatewayDashboardComponent{
 
     @Input()
     public onlineStatus = true;
@@ -29,16 +27,16 @@ export class GatewayDashboardComponent {
 
     public getHeigth(): string {
 
-        if (!this.model.status.onlineStatus) return '200px';
-
+        if (!this.model.status.onlineStatus) return "200px";
+        
         const nColumns = this. model.cfgDashboard.numberColumns;
 
         let nTiles = this.getNumbertTiles();
 
         let rows = Math.ceil(nTiles / nColumns);
 
-        const perc = 100 / rows;
-
-        return perc + '%';
+        return ((window.innerHeight - 5) / rows) + "px";
+        
     }
+
 }

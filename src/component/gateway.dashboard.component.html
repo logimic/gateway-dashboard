@@ -1,7 +1,8 @@
 
 
-<mat-grid-list cols={{this.model.cfgDashboard.numberColumns}} rowHeight={{this.getHeigth()}}>
 
+
+<mat-grid-list cols={{this.model.cfgDashboard.numberColumns}} rowHeight="{{ getHeigth() }}">
 
     <mat-grid-tile>
         <span *ngIf="this.model.status.onlineStatus === true; else NotOnline">
@@ -35,6 +36,7 @@
             </mat-grid-tile>
         </span>     
     </span>   
+  
     <mat-grid-tile [colspan]="2">
         <app-gateway-about-component></app-gateway-about-component>
     </mat-grid-tile>

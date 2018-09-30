@@ -24,7 +24,7 @@
 .imgMainOn {
 
   display: block;  
-  content: url("../theme/bulbOn.png");
+  /* content: url("../theme/bulbOn.png"); */
   width: 40%;
   left: 5px;
   vertical-align:middle;
@@ -33,7 +33,7 @@
 .imgMainOff {
 
   display: block;  
-  content: url("../theme/bulbOff.png");
+  /* content: url("../theme/bulbOff.png"); */
   width: 40%;
   left: 5px;  
   vertical-align:middle;

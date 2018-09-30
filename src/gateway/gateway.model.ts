@@ -44,6 +44,23 @@ export interface ThingSpaceRecord {
     time: number;
 }
 
+export interface Face {
+    label: number;
+    maleProb: number;
+    age: number;
+    confidence: number;
+    location: {
+        x: number;
+        y: number;
+        z: number;
+    };
+    headPose: {
+        r: number;
+        p: number;
+        y: number;
+    };              
+}
+
 /* hold information transmitted by websocket*/
 @Injectable()
 export class GatewayModel  {
@@ -63,6 +80,7 @@ export class GatewayModel  {
 
     // Recorded data
     public records: ThingSpaceRecord[];
+    public iFace: Face;
 
 
     public scenarioList: oegwThings.OegwScenarioList = {
@@ -172,6 +190,7 @@ export class GatewayModel  {
                     this.records[this.records.length] = {time: t, point: this.thingSpace};
 
                    // this.nt = this.getNumberThings();
+                   
 
                 }
             }
@@ -192,6 +211,36 @@ export class GatewayModel  {
 
     }
 */
+
+
+    /*
+    * Returns face
+    */
+    public getFace(nThing: number, face: number): Face {
+
+        if (this.thingSpace.data.faceRecognition.length <= 0) {
+            return null;
+        }
+        if (nThing < 0 || nThing >= this.thingSpace.data.faceRecognition.length) {
+            return null;
+        }
+       //window.alert('A: ' + nThing + '  ln: ' + this.thingSpace.data.faceRecognition.length);  
+        if (this.thingSpace.data.faceRecognition[nThing].faces.length <= 0) {
+             
+            return null;
+        }        
+ //window.alert('fl: ' + this.thingSpace.data.faceRecognition[nThing].face.length); 
+
+        if (face < 0 || face >= this.thingSpace.data.faceRecognition[nThing].faces.length) {
+            return null;
+        }
+
+        const fc: Face = this.thingSpace.data.faceRecognition[nThing].faces[face];    
+
+       // window.alert('fff: ' + fc.maleProb);  
+
+        return fc;
+    }
 }
 
 

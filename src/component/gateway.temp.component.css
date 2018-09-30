@@ -22,7 +22,7 @@
 .imgMain {
   position: absolute;
   display: block;  
-     content: url("../theme/temp.png");
-     width: 40%;
-     left: 5px;
+  /*content: url("./../theme/temp.png");*/
+  width: 40%;
+  left: 5px;
 }

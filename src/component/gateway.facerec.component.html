@@ -1,6 +1,22 @@
-<div class="frText"> 
-    {{name}}
+
+
+<span *ngIf="nFaces > 1">
+    <img class="imgMain" src="../theme/people.png" alt="Lights" style="width:40%"> 
+</span>
+
+<span *ngIf="nFaces === 1">
+    <span *ngIf="isMale(0)">
+        <img class="imgMain" src="../theme/male.png" alt="Lights" style="width:40%"> 
+    </span>
+    <span *ngIf="!isMale(0)">
+        <img class="imgMain" src="../theme/female.png" alt="Lights" style="width:40%"> 
+    </span>
+</span>
+
+<div class="textMain">     
+    {{this.nFaces}} 
 </div>
-<div class="frText"> 
-    Number of faces: {{this.nFaces}}
+
+<div class="textName"> 
+    {{this.name}}
 </div>
