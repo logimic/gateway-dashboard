@@ -1,0 +1,22 @@
+
+<div *ngIf="this.skin === 'Female'">
+
+    <mat-radio-group class="settings-radio-group" [(ngModel)]="this.model.status.selectedSkin">
+    <mat-radio-button class="settings-radio-button" *ngFor="let skin of this.model.status.skins" [value]="skin">
+        {{skin}}
+    </mat-radio-button>
+    </mat-radio-group>
+ 
+    <div class="textName"> 
+        Settings...
+    </div>
+
+</div>
+
+<div *ngIf="this.skin === 'male'">
+
+ 
+
+</div>
+
+

@@ -1,15 +1,35 @@
 
+<div *ngIf="this.skin === 'Female'">
 
+    <img class="imgSymbolFemale" src="./theme/temp.png" alt="Lights">
 
-<!-- <img class="logo" src="./theme/temp.png" alt="Lights" style="width:40%">  -->
+    <div class="textValueFemale">     
+        {{this.temp}} {{this.unit}}     
+    </div>
 
-<!--<img  class="imgMain"> -->
-<img class="imgMain" src="../theme/temp.png" alt="Lights" style="width:40%"> 
+    <div class="textNameFemale"> 
+        {{this.name}}
+    </div>
 
-<div class="textMain">     
-    {{this.temp}} {{this.unit}}     
 </div>
 
-<div class="textName"> 
-    {{this.name}}
+<div *ngIf="this.skin === 'Male'">
+
+    <canvas #myCanvas ></canvas>
+
+<!--
+    <img class="imgMain" src="./theme/temp.png" alt="Lights" style="width:40%">
+
+    <div class="textMain">     
+        {{this.temp}} {{this.unit}}     
+    </div>
+
+    <div class="textName"> 
+        {{this.name}}
+    </div>
+
+    -->
+
 </div>
+
+

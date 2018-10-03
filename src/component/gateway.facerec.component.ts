@@ -10,6 +10,9 @@ import { GatewayService } from '../gateway/gateway.service';
 export class GatewayFacerecComponent {
 
     @Input()
+    public skin = 'Female';      
+
+    @Input()
     public name = 'Face Recognition';
 
     @Input()

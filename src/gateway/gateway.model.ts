@@ -23,6 +23,11 @@ export class Status  {
     public message = '';
     public trajReady; // trajectory is loaded and has at least one segment
     public manTrajsOn = false;  // Sets visible manual trajs...
+    public skin = 1; // 0: male, 1: female
+    public face = 'Male';
+    public selectedSkin = 'Female';
+    skins: string[];          
+
 }
 
 export interface IMessageList {
@@ -82,15 +87,6 @@ export class GatewayModel  {
     public records: ThingSpaceRecord[];
     public iFace: Face;
 
-
-    public scenarioList: oegwThings.OegwScenarioList = {
-        list: [
-            {name: '999',
-            scenario: 'ssss'}
-            ],
-            activeScenario: ''
-    };
-
     public ready = false;
 
     // Default/Initial; status
@@ -103,7 +99,11 @@ export class GatewayModel  {
         trajReachable: false,
         message: '',
         trajReady: false,
-        manTrajsOn: false
+        manTrajsOn: false,
+        skin: 1,
+        face: 'Male',
+        selectedSkin: 'Female',
+        skins: ['Female', 'Male', 'Adaptive']  
     };
 
     public cfg: ConfigWS = {
@@ -114,7 +114,7 @@ export class GatewayModel  {
 
     public cfgDashboard: ConfigDashboard = {
         numberColumns: 4
-    };
+    }; 
 
     constructor (protected service: GatewayService) {
 
@@ -190,6 +190,8 @@ export class GatewayModel  {
                     this.records[this.records.length] = {time: t, point: this.thingSpace};
 
                    // this.nt = this.getNumberThings();
+
+                   this.faceRecognition();
                    
 
                 }
@@ -241,6 +243,39 @@ export class GatewayModel  {
 
         return fc;
     }
+/*
+    public getSkin(): CssStylesTiles {
+        if (this.status.skin === 0) return this.maleSkin;
+        else if (this.status.skin === 1) return this.femaleSkin;
+        else return this.maleSkin;
+    }
+*/
+    public faceRecognition() {
+        
+        const fc: Face = this.getFace(0, 0);
+        if (fc !== null) {
+            if (fc.maleProb > 0.8) {
+                this.status.skin = 0;
+                this.status.face = 'Male';
+            } else {
+                this.status.skin = 1;
+                this.status.face = 'Female';
+            }
+        }
+    }
+
+    public getSkin(): string {
+
+        // Return by recognized face
+        if (this.status.selectedSkin === 'Adaptive') {
+
+            return this.status.face;
+        }
+
+        // Return preferred skin    
+        return this.status.selectedSkin;        
+    }
+    
 }
 
 

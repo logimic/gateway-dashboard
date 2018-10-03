@@ -1,7 +1,6 @@
 
 
 
-
 <mat-grid-list cols={{this.model.cfgDashboard.numberColumns}} rowHeight="{{ getHeigth() }}">
 
     <mat-grid-tile>
@@ -16,23 +15,27 @@
 
     <span *ngIf="this.model.status.onlineStatus === true">
        
+       <!-- TEMPs -->
         <span *ngFor="let temp of this.model.thingSpace.data.thermometer">
             <mat-grid-tile>
-                    <app-gateway-temp-component [name]="temp.name" [temp]="temp.temperature"></app-gateway-temp-component>
+                <span *ngIf="this.model.getSkin() === 'Female'">
+                    <app-gateway-temp-component style="background: #F08080;" [skin]="this.model.getSkin()" [name]="temp.name" [temp]="temp.temperature" [unit]="c"></app-gateway-temp-component>
+                </span>
+                <span *ngIf="this.model.getSkin() === 'Male'">
+                    <app-gateway-temp-component style="background: #F08080;" [skin]="this.model.getSkin()" [name]="temp.name" [temp]="temp.temperature" [unit]="c"></app-gateway-temp-component>
+                </span>                
             </mat-grid-tile>
         </span>
-
        
         <span *ngFor="let binOut of this.model.thingSpace.data.binaryOutput">
             <mat-grid-tile>
-                    <app-gateway-binout-component [name]="binOut.name" [output]="binOut.output"></app-gateway-binout-component>
+                    <app-gateway-binout-component [skin]="this.model.getSkin()" [name]="binOut.name" [output]="binOut.output"></app-gateway-binout-component>
             </mat-grid-tile>
         </span>    
-
       
         <span *ngFor="let faceRec of this.model.thingSpace.data.faceRecognition">
             <mat-grid-tile>
-                    <app-gateway-facerec-component [name]="'Face Recognition'" [nFaces]="faceRec.faces.length"></app-gateway-facerec-component>
+                    <app-gateway-facerec-component [skin]="this.model.getSkin()" [name]="'FaceRecognition'" [nFaces]="faceRec.faces.length"></app-gateway-facerec-component>
             </mat-grid-tile>
         </span>     
     </span>   
@@ -40,6 +43,10 @@
     <mat-grid-tile [colspan]="2">
         <app-gateway-about-component></app-gateway-about-component>
     </mat-grid-tile>
+
+    <mat-grid-tile>
+        <app-gateway-settings-component></app-gateway-settings-component>
+    </mat-grid-tile>    
 
  </mat-grid-list>
 

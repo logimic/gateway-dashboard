@@ -6,7 +6,7 @@ import { GatewayModel} from '../gateway/gateway.model';
     templateUrl: 'gateway.status.component.html'
 })
 export class GatewayStatusComponent {
-
+   
     @Input()
     public gwmVersion = 'v0.0.2';
 
@@ -20,6 +20,7 @@ export class GatewayStatusComponent {
 
     @Input()
     public wsProtocol = '---';
+
 /*
     @Input()
     public P: Point = {x: 10, y: 20.6, z: 30};

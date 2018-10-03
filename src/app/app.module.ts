@@ -11,6 +11,7 @@ import { GatewayTempComponent} from '../component/gateway.temp.component';
 import { GatewayBinoutComponent} from '../component/gateway.binout.component';
 import { GatewayFacerecComponent} from '../component/gateway.facerec.component';
 import { GatewayAboutComponent} from '../component/gateway.about.component';
+import { GatewaySettingsComponent} from '../component/gateway.settings.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {A11yModule} from '@angular/cdk/a11y';
@@ -116,7 +117,8 @@ export class MaterialModule {}
     GatewayTempComponent,
     GatewayBinoutComponent,
     GatewayFacerecComponent,
-    GatewayAboutComponent
+    GatewayAboutComponent,
+    GatewaySettingsComponent
    // WebGlComponent,
    // ZoomDirectionComponent
   ],

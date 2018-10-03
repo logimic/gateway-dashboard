@@ -1,17 +1,19 @@
 
- <div *ngIf="this.output">
-    <img class="imgMainOn" src="../theme/bulbOn.png" alt="Lights" style="width:40%"> 
- </div>
+ <div *ngIf="this.skin === 'Female'">
+    <span *ngIf="this.output">
+        <img class="imgSymbolFemale" src="../theme/bulbOn.png" alt="Lights"> 
+    </span>
 
- <div *ngIf="!this.output">
-    <img class="imgMainOff" src="../theme/bulbOff.png" alt="Lights" style="width:40%"> 
- </div> 
+    <span *ngIf="!this.output">
+        <img class="imgSymbolFemale" src="../theme/bulbOff.png" alt="Lights"> 
+    </span> 
 
-<div class="textMain">
-    <span *ngIf="this.output"> On </span>  
-    <span *ngIf="!this.output"> Off </span>  
-</div>
+    <div class="textValueFemale">
+        <span *ngIf="this.output"> On </span>  
+        <span *ngIf="!this.output"> Off </span>  
+    </div>
 
-<div class="textName"> 
-    {{this.name}}
+    <div class="textNameFemale"> 
+        {{this.name}}
+    </div>
 </div>
