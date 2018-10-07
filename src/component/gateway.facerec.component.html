@@ -1,15 +1,15 @@
 <div *ngIf="this.skin === 'Female'">
 
     <span *ngIf="nFaces > 1">
-        <img class="imgMain" src="../theme/people.png" alt="Lights" style="width:40%"> 
+        <img class="imgSymbolFemale" src="./theme/people.png" alt="Lights"> 
     </span>
 
     <span *ngIf="nFaces === 1">
         <span *ngIf="isMale(0)">
-            <img class="imgMain" src="../theme/male.png" alt="Lights" style="width:40%"> 
+            <img class="imgSymbolFemale" src="./theme/male.png" alt="Lights"> 
         </span>
         <span *ngIf="!isMale(0)">
-            <img class="imgMain" src="../theme/female.png" alt="Lights" style="width:40%"> 
+            <img class="imgSymbolFemale" src="./theme/female.png" alt="Lights"> 
         </span>
     </span>
 
@@ -21,4 +21,41 @@
         {{this.name}}
     </div>
 
+</div>
+
+<div *ngIf="this.skin === 'Male'">
+    
+    
+        <span *ngIf="nFaces === 1">
+            <div class="textValueMale"> 
+                <span *ngIf="isMale(0)" style="color:yellow;">
+                M
+                </span>
+                <span *ngIf="!isMale(0)" style="color:yellow;">
+                F
+                </span>
+            </div>
+            <div class="textNameMale" style="color:yellow;"> 
+                {{this.name}}
+            </div>        
+        </span>
+
+        <span *ngIf="nFaces > 1">
+            <div class="textValueMale"> 
+            ... {{this.nFaces}} 
+            </div>
+            <div class="textNameMale"> 
+                {{this.name}}
+            </div>            
+        </span>
+
+        <span *ngIf="nFaces < 1">
+            <div class="textValueMale"> 
+            ... 
+            </div>
+            <div class="textNameMale"> 
+                {{this.name}}
+            </div>            
+        </span>        
+    
 </div>

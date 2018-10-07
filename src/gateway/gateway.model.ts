@@ -136,6 +136,8 @@ export class GatewayModel  {
 
         service.emitorWsOegw$.subscribe( w => {
             this.cfg = w;
+            // this.cfg.wsServer = window.location.origin;
+            // window.alert('IP:' + this.cfg.wsServer);
         });
 
         service.emitorConfigDashboard$.subscribe( w => {

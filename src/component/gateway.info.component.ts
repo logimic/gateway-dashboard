@@ -10,6 +10,9 @@ import { GatewayService } from '../gateway/gateway.service';
 export class GatewayInfoComponent {
 
     @Input()
+    public skin = 'Female';    
+
+    @Input()
     public online = false;
 
     constructor() {

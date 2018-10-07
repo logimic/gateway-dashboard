@@ -33,7 +33,6 @@ export class GatewayService {
     public emitorThingSpace$: EventEmitter<oegwThings.ThingSpace> = new EventEmitter();
 
     constructor(protected http: Http) {
-
         this.loadConfig();
         this.loadConfigDashboard();
         this.connectionTimer(2000);

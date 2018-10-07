@@ -3,33 +3,7 @@
 @import 'https://fonts.googleapis.com/css?family=Syncopate';
 @import 'https://fonts.googleapis.com/css?family=Trade+Winds';
 
-.textMain{  
-  position: absolute;
-  display: block;  
-  color: rgb(29, 78, 143);
-  font: 40px 'Trade Winds', cursive;  
-  left:35%;
-  top: 30%;  
-  
-}
 
-.textName{  
-  position: absolute;
-  display: block;
-  color: rgb(29, 78, 143);
-  font: 30px 'Trade Winds', cursive;  
-  left:35%;
-  top: 60%;
-}
-
-.imgMain {
-
-  display: block;  
-  /* content: url("../theme/bulbOn.png"); */
-  width: 40%;
-  left: 5px;
-  vertical-align:middle;
-}
 
 .settings-radio-group {
   display: inline-flex;

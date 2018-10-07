@@ -3,6 +3,11 @@
 @import 'https://fonts.googleapis.com/css?family=Share+Tech+Mono';
 @import 'https://fonts.googleapis.com/css?family=Roboto';
 
+@import 'https://fonts.googleapis.com/css?family=Barlow+Condensed';
+@import 'https://fonts.googleapis.com/css?family=Syncopate';
+@import 'https://fonts.googleapis.com/css?family=Trade+Winds';
+
+@import 'https://fonts.googleapis.com/css?family=Bai+Jamjuree:400,700';
   
 .basic-container {
     padding: 5px;
@@ -259,39 +264,113 @@ app-gateway-dashboard-component {
 }
 
 .textNameFemale{  
-  
- /* display: block;*/
- /*
-  color: rgb(29, 78, 143);
-  font: 30px 'Trade Winds', cursive;  
-  text-align: center;
-  vertical-align: bottom;
-*/
+ 
   position: absolute;
   display: block;
   color: rgb(29, 78, 143);
   font: 30px 'Trade Winds', cursive;  
-  left: 50%;
-  bottom: 5%;
+  left: 50%;  
   transform: translateX(-50%);
+  bottom: 10%;  
+  
 }
 
 .textValueFemale{  
-  position: absolute;
-  display: block;  
+
   color: rgb(29, 78, 143);
-  font: 40px 'Trade Winds', cursive;  
-  left:35%;
-  top: 30%;    
+  font: 60px 'Trade Winds', cursive;   
+  position: absolute;
+  float: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  
+  
 }
 
 .imgSymbolFemale {
-  /* Make image 512x512 */
+
   position: absolute;
-  display: block;  
-  /* content: url("../theme/bulbOn.png"); */
-  width: 35%;
-  top: 5px;
-  left: 5px;
-  vertical-align:middle;
+ 
+  height: 35%;
+  top: 50%;
+  left: 5%;
+  transform: translate(0%, -50%);  
+}
+
+.textHelloFemale{  
+    
+    color: rgb(29, 78, 143);
+    font: 20px 'Trade Winds', cursive;  
+    position: absolute;
+    float: left;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);     
+}
+
+.imgSymbolLogo {
+
+  position: absolute;
+ 
+  height: 35%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  
+}
+
+.textNameMale{  
+ 
+  position: absolute;
+  display: block;
+  color: #A0A0A4;
+  font: 40px  'Bai Jamjuree', sans-serif;
+  left: 50%;  
+  transform: translateX(-50%);
+  bottom: 10%;  
+  
+}
+
+.textValueMale{  
+
+  color: #A0A0A4;
+  font: 80px 'Bai Jamjuree', sans-serif;
+  font-weight: bold;
+  position: absolute;
+  float: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  
+  
+}
+
+.textHelloMale{  
+    
+    color: #A0A0A4;
+    font: 60px 'Bai Jamjuree', sans-serif;
+    font-weight: bold;
+    position: absolute;
+    float: left;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);     
+}
+
+.radioStyleFemale {
+
+  position: absolute;
+  color: rgb(29, 78, 143);
+  font: 16px 'Trade Winds', cursive;  
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0%);  
+}
+
+.radioStyleMale {
+
+  position: absolute;
+  font: 16px 'Bai Jamjuree', sans-serif;
+  height: 35%;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0%);  
 }

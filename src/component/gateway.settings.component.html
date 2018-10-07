@@ -1,21 +1,34 @@
 
 <div *ngIf="this.skin === 'Female'">
 
-    <mat-radio-group class="settings-radio-group" [(ngModel)]="this.model.status.selectedSkin">
-    <mat-radio-button class="settings-radio-button" *ngFor="let skin of this.model.status.skins" [value]="skin">
-        {{skin}}
-    </mat-radio-button>
-    </mat-radio-group>
+    <div  class="radioStyleFemale">
+        <mat-radio-group class="settings-radio-group" [(ngModel)]="this.model.status.selectedSkin">
+        <mat-radio-button class="settings-radio-button" *ngFor="let skin of this.model.status.skins" [value]="skin">
+            {{skin}}
+        </mat-radio-button>
+        </mat-radio-group>
+    </div>
  
-    <div class="textName"> 
+    <div class="textNameFemale"> 
         Settings...
     </div>
 
 </div>
 
-<div *ngIf="this.skin === 'male'">
+<div *ngIf="this.skin === 'Male'">
 
+    <div  class="radioStyleMale">        
+        <mat-radio-group class="settings-radio-group" [(ngModel)]="this.model.status.selectedSkin">
+        <mat-radio-button class="settings-radio-button" *ngFor="let skin of this.model.status.skins" [value]="skin">
+            {{skin}}
+        </mat-radio-button>
+        </mat-radio-group>
+
+    </div>
  
+    <div class="textNameMale" style="color:#423C40;"> 
+        Settings...
+    </div> 
 
 </div>
 

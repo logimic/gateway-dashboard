@@ -1,11 +1,11 @@
 
  <div *ngIf="this.skin === 'Female'">
     <span *ngIf="this.output">
-        <img class="imgSymbolFemale" src="../theme/bulbOn.png" alt="Lights"> 
+        <img class="imgSymbolFemale" src="./theme/bulbOn.png" alt="Lights"> 
     </span>
 
     <span *ngIf="!this.output">
-        <img class="imgSymbolFemale" src="../theme/bulbOff.png" alt="Lights"> 
+        <img class="imgSymbolFemale" src="./theme/bulbOff.png" alt="Lights"> 
     </span> 
 
     <div class="textValueFemale">
@@ -15,5 +15,18 @@
 
     <div class="textNameFemale"> 
         {{this.name}}
+    </div>
+</div>
+
+ <div *ngIf="this.skin === 'Male'">
+
+    <div class="textValueMale">
+        <span *ngIf="this.output" style="color:yellow;"> On </span>  
+        <span *ngIf="!this.output"> Off </span>  
+    </div>
+
+    <div class="textNameMale"> 
+        <span *ngIf="this.output" style="color:yellow;"> {{this.name}} </span>  
+        <span *ngIf="!this.output"> {{this.name}} </span>          
     </div>
 </div>

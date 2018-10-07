@@ -9,6 +9,12 @@ import { GatewayService } from '../gateway/gateway.service';
 })
 export class GatewayAboutComponent {
 
+    @Input()
+    public skin = 'Female';
+
+    @Input()
+    public logo = './theme/Logimic_logo_full.png';    
+
     constructor() {
     }
 }

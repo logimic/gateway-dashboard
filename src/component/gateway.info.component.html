@@ -1,10 +1,25 @@
-<div>
+<div *ngIf="this.skin === 'Female'">
     <span *ngIf="this.online == true; else NotOnline">
-        <span class="infoText"><b>Hello I am your Open Edge Gateway</b>
+        <span class="textHelloFemale"><b>Hello I am your Open Edge Gateway</b>
         <br><b>I am ready :)</b></span>
     </span>
 
     <ng-template #NotOnline>
-            <span class="infoTextOffline">Gateway is off-line :(</span>
+            <span class="textHelloFemale" style="color: rgb(255, 255, 255);">Gateway is off-line :(</span>
     </ng-template>    
 </div>
+
+<div *ngIf="this.skin === 'Male'">
+    <span *ngIf="this.online == true; else NotOnline">
+        <span class="textHelloMale" style="color:green;">
+            online
+        </span>
+    </span>
+
+    <ng-template #NotOnline>
+        <span class="textHelloMale">
+            offline
+        </span>
+    </ng-template>    
+</div>
+

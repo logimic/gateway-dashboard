@@ -22,7 +22,7 @@ export class GatewayTempComponent implements AfterViewInit {
     public unit = '°C';
 
     @ViewChild('myCanvas') myCanvas: ElementRef;
-    
+
     public context: CanvasRenderingContext2D;
 
     constructor() {
@@ -34,17 +34,14 @@ export class GatewayTempComponent implements AfterViewInit {
         if (this.skin === 'Male') {
 
             this.context = (<HTMLCanvasElement>this.myCanvas.nativeElement).getContext('2d');
-    
-            this.draw();
-        }    
+            // this.draw();
+        }
     }
 
     private draw() {
         this.context.beginPath();
-        this.context.moveTo(0,0);
-        this.context.lineTo(20,20);
+        this.context.moveTo(0, 0);
+        this.context.lineTo(20, 20);
         this.context.stroke();
     }
-
-  
 }
