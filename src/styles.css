@@ -272,6 +272,13 @@ app-gateway-dashboard-component {
   left: 50%;  
   transform: translateX(-50%);
   bottom: 10%;  
+  font-size: 2.0vw; 
+    /* 100 = viewport width, as 1vw = 1/100th of that
+       So if the container is 50% of viewport (as here)
+       then factor that into how you want it to size.
+       Let's say you like 5vw if it were the whole width,
+       then for this container, size it at 2.5vw (5 * .5 [i.e. 50%])
+    */  
   
 }
 
@@ -284,6 +291,13 @@ app-gateway-dashboard-component {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);  
+  font-size: 3.0vw; 
+    /* 100 = viewport width, as 1vw = 1/100th of that
+       So if the container is 50% of viewport (as here)
+       then factor that into how you want it to size.
+       Let's say you like 5vw if it were the whole width,
+       then for this container, size it at 2.5vw (5 * .5 [i.e. 50%])
+    */  
   
 }
 
@@ -305,7 +319,8 @@ app-gateway-dashboard-component {
     float: left;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);     
+    transform: translate(-50%, -50%);    
+    font-size: 1.5vw;  
 }
 
 .imgSymbolLogo {
@@ -327,6 +342,7 @@ app-gateway-dashboard-component {
   left: 50%;  
   transform: translateX(-50%);
   bottom: 10%;  
+  font-size: 2.5vw;  
   
 }
 
@@ -340,6 +356,7 @@ app-gateway-dashboard-component {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);  
+  font-size: 4.5vw;  
   
 }
 
@@ -353,6 +370,7 @@ app-gateway-dashboard-component {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);     
+    font-size: 3.5vw;  
 }
 
 .radioStyleFemale {
@@ -363,6 +381,7 @@ app-gateway-dashboard-component {
   top: 20%;
   left: 50%;
   transform: translate(-50%, 0%);  
+  font-size: 1.0vw;  
 }
 
 .radioStyleMale {
@@ -373,4 +392,5 @@ app-gateway-dashboard-component {
   top: 20%;
   left: 50%;
   transform: translate(-50%, 0%);  
+  font-size: 1.0vw;  
 }
