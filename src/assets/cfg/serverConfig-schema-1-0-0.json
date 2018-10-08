@@ -7,17 +7,19 @@
         "format": "jsonschema",
         "version": "1-0-0"
     },
-    "wsServer": {
+    "wsIP": {
         "type": "string",
-        "description": "address: ws://localhost:1338",
-        "default": "ws://localhost:1338"
+        "description": "IP address e.g. 192.168.1.1",
+        "default": "127.0.0.1"
     },
-    "wsProtocol": {
+    "wsPort": {
         "type": "string",
-        "description": "protocol: cobalt",
-        "default": "cobalt",
-        "enum": [
-            "cobalt"
-        ]
+        "description": "port e.g. 1341",
+        "default": "1341"
+    },
+    "detectServer": {
+        "type": "boolean",
+        "description": "If the IP should be taken from the server where the client is provided.",
+        "default": false
     }
 }

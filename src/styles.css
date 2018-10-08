@@ -382,15 +382,17 @@ app-gateway-dashboard-component {
   left: 50%;
   transform: translate(-50%, 0%);  
   font-size: 1.0vw;  
+  height: 1.0vw;
 }
 
 .radioStyleMale {
 
   position: absolute;
   font: 16px 'Bai Jamjuree', sans-serif;
-  height: 35%;
+  /*height: 35%;*/
   top: 20%;
   left: 50%;
   transform: translate(-50%, 0%);  
   font-size: 1.0vw;  
+  height: 1.0vw;
 }

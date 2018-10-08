@@ -36,12 +36,15 @@ export interface IMessageList {
 
 export interface ConfigWS {
     wsServer: string;
-    wsProtocol: string;
+    wsIP: string;
+    wsPort: string;
+    detectServer: boolean;
     valid: boolean;
 }
 
 export interface ConfigDashboard {
     numberColumns: number;
+    initSkin: string;
 }
 
 export interface ThingSpaceRecord {
@@ -108,12 +111,15 @@ export class GatewayModel  {
 
     public cfg: ConfigWS = {
         wsServer: '-',
-        wsProtocol: '-',
+        wsIP: '-',
+        wsPort: '-',
+        detectServer: false,
         valid: false
     };
 
     public cfgDashboard: ConfigDashboard = {
-        numberColumns: 4
+        numberColumns: 4,
+        initSkin: 'Female'
     }; 
 
     constructor (protected service: GatewayService) {
@@ -136,12 +142,22 @@ export class GatewayModel  {
 
         service.emitorWsOegw$.subscribe( w => {
             this.cfg = w;
+
             // this.cfg.wsServer = window.location.origin;
             // window.alert('IP:' + this.cfg.wsServer);
         });
 
         service.emitorConfigDashboard$.subscribe( w => {
             this.cfgDashboard = w;
+
+            // Set init skin
+            if (this.cfgDashboard.initSkin === 'female' || this.cfgDashboard.initSkin === 'Female') {
+                this.status.selectedSkin = 'Female';
+            } else if (this.cfgDashboard.initSkin === 'male' || this.cfgDashboard.initSkin === 'Male') {
+                this.status.selectedSkin = 'Male';
+            } else if (this.cfgDashboard.initSkin === 'adaptive' || this.cfgDashboard.initSkin === 'Adaptive') {
+                this.status.selectedSkin = 'Adaptive';
+            }                 
         });
 
         service.emitorThingSpace$.subscribe( w => {

@@ -1,3 +1,4 @@
 {
-    "numberColumns": 4  
+    "numberColumns": 4,
+    "initSkin": "Female" 
 }

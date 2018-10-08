@@ -8,17 +8,20 @@ import * as oegwThings from './oegw-things';
 @Injectable()
 export class GatewayService {
 
-    public bbb = false;
+    public hostname = '';
     private timerConnect;
     // Oegw config...
     public wsOegw: ConfigWS = {
         wsServer: '',
-        wsProtocol: '',
+        wsIP: '',
+        wsPort: '',
+        detectServer: false,
         valid: false
     };
 
     public cfgDashboard: ConfigDashboard = {
-        numberColumns: 3
+        numberColumns: 3,
+        initSkin: 'Female'
     };
 
     //msgArray: Msg[];
@@ -33,18 +36,33 @@ export class GatewayService {
     public emitorThingSpace$: EventEmitter<oegwThings.ThingSpace> = new EventEmitter();
 
     constructor(protected http: Http) {
+
+        // Get local IP...
+        this.hostname = window.location.hostname;
+
         this.loadConfig();
         this.loadConfigDashboard();
-        this.connectionTimer(2000);
+        this.connectionTimer(2000);        
     }
 
 
     loadConfig() {
         const path = './assets/cfg/oegwServerConfig.json';
         this.http.get(path).subscribe(data => {
-            this.wsOegw.wsServer = data.json().wsServer;
-            this.wsOegw.wsProtocol = data.json().wsProtocol;
+            this.wsOegw.wsIP = data.json().wsIP;
+            this.wsOegw.wsPort = data.json().wsPort;
+            this.wsOegw.detectServer = data.json().detectServer;
             this.wsOegw.valid = true;
+
+            if (this.wsOegw.detectServer) {
+              this.wsOegw.wsServer = 'ws://' + this.hostname + ':' + this.wsOegw.wsPort;  
+            } else {
+                this.wsOegw.wsServer = 'ws://' + this.wsOegw.wsIP + ':1341';
+            }
+            
+          //  this.wsOegw.wsServer = 'ws://' + this.hostname + ':1341';
+
+            // window.alert('SRV: ' + this.wsOegw.wsServer);
 
             this.emitorWsOegw$.emit(this.wsOegw);
         });
@@ -54,6 +72,7 @@ export class GatewayService {
         const path = './assets/cfg/dashboardConfig.json';
         this.http.get(path).subscribe(data => {
             this.cfgDashboard.numberColumns = data.json().numberColumns;
+            this.cfgDashboard.initSkin = data.json().initSkin;
 
             this.emitorConfigDashboard$.emit(this.cfgDashboard);
         });

@@ -1,7 +1,41 @@
 # gateway-dashboard
+
 Nice dashboard for OpenEdgeGateway.
 
-# Prerequisites
+![](./src/theme/screen.png)
+
+# A. Run via local web Server
+
+## 1. Prerequisites
+
+1. **npm & node.js**
+
+    How to install it is here: https://nodejs.org/en/
+
+2. **Local Web Server** https://www.npmjs.com/package/local-web-server
+
+    Install:
+    ```
+    $ npm install -g local-web-server
+    ```
+
+## 2. Run
+
+1. From [any release](https://github.com/logimic/gateway-dashboard/releases) download **www.zip** and unzip somewhere.
+2. Run local web server in unzipped **www** or in any superior folder.
+    ```
+    $ ws -p 8181
+    ```
+    * The _8181_ number is port specification.
+    * Then see command line displaying serving IP:
+    ```
+    Serving at http://192.168.1.228:8181
+    ```
+3. Open Web Browser on local or any other network computer and navigate to the serving address.
+
+# B. Build from sources
+
+## 1. Prerequisites
 
 1. **npm & node.js**
 How to install is here: https://nodejs.org/en/
@@ -15,7 +49,7 @@ npm cache verify
 npm install -g @angular/cli
 ```
 
-# Setup gateway-dashboard on your machine
+## 2. Setup gateway-dashboard on your machine
 
 1. Pull this repository
 2. Open terminal/command line and go to main folder.
@@ -25,9 +59,8 @@ npm install -g @angular/cli
 npm install
 ```
 
-# Run
+## 3. Build and Run with Angular
 
-### A. With Angular
 1.  Open terminal/command line in main folder.
 2. Run server
 ```
@@ -35,13 +68,11 @@ ng serve
 ```
 3. Open browser **http://localhost:4200/**
 
-### B. With Local Web Server https://www.npmjs.com/package/local-web-server
+## 4. Produce build
+
+1.  Open terminal/command line in main folder.
+2. Make build
 ```
-$ npm install -g local-web-server
-$ cd <your-app-folder>
-$ ws
+ng build
 ```
-or with port specification
-```
-$ ws -p 8181
-```
+3. See **www** folder with build.
