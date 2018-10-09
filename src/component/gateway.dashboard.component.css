@@ -54,6 +54,7 @@ app-gateway-temp-component {
   z-index: 3;
   background: #3498db;
   display: flex;
+
   /*justify-content: center; /* align horizontal */
   /*align-items: center; /* align vertical */   
 }

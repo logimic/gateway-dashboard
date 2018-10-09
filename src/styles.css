@@ -298,6 +298,7 @@ app-gateway-dashboard-component {
        Let's say you like 5vw if it were the whole width,
        then for this container, size it at 2.5vw (5 * .5 [i.e. 50%])
     */  
+   white-space: nowrap;
   
 }
 
@@ -352,11 +353,14 @@ app-gateway-dashboard-component {
   font: 80px 'Bai Jamjuree', sans-serif;
   font-weight: bold;
   position: absolute;
-  float: left;
+  /*float: left;*/
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);  
-  font-size: 3.6vw;  
+  font-size: 4.8vw;  
+  white-space: nowrap;
+
+ 
   
 }
 
@@ -378,11 +382,12 @@ app-gateway-dashboard-component {
   position: absolute;
   color: rgb(29, 78, 143);
   font: 16px 'Trade Winds', cursive;  
-  top: 20%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, 0%);  
-  font-size: 1.0vw;  
-  height: 1.0vw;
+  transform: translate(-50%, -50%);  
+  font-size: 1.5vw;  
+
+
 }
 
 .radioStyleMale {
@@ -390,9 +395,10 @@ app-gateway-dashboard-component {
   position: absolute;
   font: 16px 'Bai Jamjuree', sans-serif;
   /*height: 35%;*/
-  top: 20%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, 0%);  
-  font-size: 1.0vw;  
-  height: 1.0vw;
+  transform: translate(-50%, -50%);  
+  font-size: 1.5vw;  
+  
+  
 }
