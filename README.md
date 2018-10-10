@@ -21,8 +21,8 @@ Nice dashboard for OpenEdgeGateway.
 
 ## 2. Run
 
-1. From [any release](https://github.com/logimic/gateway-dashboard/releases) download **www.zip** and unzip somewhere.
-2. Run local web server in unzipped **www** or in any superior folder.
+1. From [any release](https://github.com/logimic/gateway-dashboard/releases) download **www-gateway-dashboard.zip** and unzip somewhere.
+2. Run local web server in unzipped **www-gateway-dashboard** or in any superior folder.
     ```
     $ ws -p 8181
     ```
