@@ -3,10 +3,12 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { GatewayService } from './gateway.service';
 // import { ISTLFacets, StlService } from '../webgl/stl.service';
 import { Observable } from 'rxjs/Rx';
-import * as iqrfApi from './iqrf-api';
+// import * as iqrfApi from './iqrf-api';
 import * as oegwApi from './oegw-api';
 import * as oegwThings from './oegw-things';
 import { debugOutputAstAsTypeScript } from '@angular/compiler';
+import { Things } from '../../../../Logimic/gateway-manager/src/gateway/oegw-things';
+import { Face3 } from 'three';
 
 export interface ServerStatus {
     cncStatus: number;      // status cnc core
@@ -26,7 +28,7 @@ export class Status  {
     public skin = 1; // 0: male, 1: female
     public face = 'Male';
     public selectedSkin = 'Female';
-    skins: string[];          
+    skins: string[];
 
 }
 
@@ -66,15 +68,36 @@ export interface Face {
         r: number;
         p: number;
         y: number;
-    };              
+    };
 }
+
+
+export interface Thing {
+      /**
+       * Identificator of thing...
+       */
+      name: string;
+      /**
+       * Value of thing...
+       */
+      value: number;
+      /**
+       * Type of thing...
+       */
+      atype: string;
+      /**
+       * Unit of thing value...
+       */
+      unit?: string;
+}
+
 
 /* hold information transmitted by websocket*/
 @Injectable()
 export class GatewayModel  {
 
-    readonly MAX_RECORDS: number = 10000;
-    readonly DW_RECORDS: number = 5000;
+    // readonly MAX_RECORDS: number = 10000;
+    // readonly DW_RECORDS: number = 5000;
 
     // oegw API
     public thingSpace: oegwThings.ThingSpace = {
@@ -86,9 +109,17 @@ export class GatewayModel  {
         }
     };
 
+    public thingStatus: oegwApi.UpdateThingsResponse = {
+      mType: 'updateThings',
+      data: {
+        things: []
+      }
+    };
+
     // Recorded data
-    public records: ThingSpaceRecord[];
+    // public records: ThingSpaceRecord[];
     public iFace: Face;
+    public faces: Face[];
 
     public ready = false;
 
@@ -106,7 +137,7 @@ export class GatewayModel  {
         skin: 1,
         face: 'Male',
         selectedSkin: 'Female',
-        skins: ['Female', 'Male', 'Adaptive']  
+        skins: ['Female', 'Male', 'Adaptive']
     };
 
     public cfg: ConfigWS = {
@@ -120,11 +151,12 @@ export class GatewayModel  {
     public cfgDashboard: ConfigDashboard = {
         numberColumns: 4,
         initSkin: 'Female'
-    }; 
+    };
 
     constructor (protected service: GatewayService) {
 
-        this.records = new Array();
+        // this.records = new Array();
+        this.faces = new Array();
 
         service.emitorOnlineStatus$.subscribe( w => {
             this.status.onlineStatus = w;
@@ -132,7 +164,7 @@ export class GatewayModel  {
             if (this.status.onlineStatus) {
                 this.connected();
             } else {
-                // this.disconnected();
+
             }
         });
 
@@ -157,7 +189,7 @@ export class GatewayModel  {
                 this.status.selectedSkin = 'Male';
             } else if (this.cfgDashboard.initSkin === 'adaptive' || this.cfgDashboard.initSkin === 'Adaptive') {
                 this.status.selectedSkin = 'Adaptive';
-            }                 
+            }
         });
 
         service.emitorThingSpace$.subscribe( w => {
@@ -180,58 +212,91 @@ export class GatewayModel  {
 
     private connected () {
 
-        this.records.length = 0;
+        // this.records.length = 0;
     }
-
+/*
     protected composition(): void {
         if (this.records.length > this.MAX_RECORDS) {
             this.records = this.records.splice(0, this.MAX_RECORDS - this.DW_RECORDS);
         }
     }
-
+*/
     protected newMsg() {
         window.alert('Num faces:' + this.thingSpace.mType);
     }
 
     private parseIncomingMsg (json: any) {
 
+     // window.alert('MSG' + JSON.stringify(json));
+      try {
+        if (json.mType) {
+            if (json.mType === 'updateThings') {
+                this.thingStatus = json as oegwApi.UpdateThingsResponse;
+                this.faceRecognition();
+
+               // window.alert('tgs: ' + this.thingStatus.data.things.length + ' 1: ' + this.thingStatus.data.things[0].atype);
+
+                /*
+                const t: number = Date.now();
+                this.composition();
+                this.records[this.records.length] = {time: t, point: this.thingSpace};
+
+                this.faceRecognition();
+                */
+            }
+          }
+        } catch (e) {
+                console.log('This doesn\'t look like a valid JSON: ',
+                    json);
+                return;
+        }
+
+        /*  OLD ONE
         try {
             if (json.mType) {
                 if (json.mType === 'thingSpace') {
                     this.thingSpace = json as oegwThings.ThingSpace;
 
-                    // window.alert(JSON.stringify(json));
-                    //window.alert('Num faces 2:' + this.thingSpace.data.thermometer[0].temperature);
-
                     const t: number = Date.now();
                     this.composition();
                     this.records[this.records.length] = {time: t, point: this.thingSpace};
 
-                   // this.nt = this.getNumberThings();
-
                    this.faceRecognition();
-                   
-
                 }
             }
          } catch (e) {
                 console.log('This doesn\'t look like a valid JSON: ',
                     json);
                 return;
-            }
+         }
+         */
     }
-/*
-    public getNumberThings (): number {
 
-        const nTemp = this.thingSpace.data.thermometer.length;
-        const nBin = this.thingSpace.data.binaryOutput.length;
-        const nFaces = this.thingSpace.data.faceRecognition.length;
+    // fit: false - name is contained in full name of thing, true: name is exact name of things
+    public getThing (name: string, fit: boolean): Thing {
 
-        return nTemp + nBin + nFaces;
+      // const fc: Face = this.thingSpace.data.faceRecognition[nThing].faces[face];
 
+      let th: Thing = null;
+
+      for (const item of this.thingStatus.data.things) {
+
+        if (fit) {
+          if (item.name === name) {
+            th = item;
+            return th;
+          }
+        } else {
+
+          if (item.name.search(name) !== -1) {
+            th = item;
+            return th;
+          }
+        }
+      }
+
+      return th;
     }
-*/
-
 
     /*
     * Returns face
@@ -244,32 +309,104 @@ export class GatewayModel  {
         if (nThing < 0 || nThing >= this.thingSpace.data.faceRecognition.length) {
             return null;
         }
-       //window.alert('A: ' + nThing + '  ln: ' + this.thingSpace.data.faceRecognition.length);  
+
         if (this.thingSpace.data.faceRecognition[nThing].faces.length <= 0) {
-             
+
             return null;
-        }        
- //window.alert('fl: ' + this.thingSpace.data.faceRecognition[nThing].face.length); 
+        }
 
         if (face < 0 || face >= this.thingSpace.data.faceRecognition[nThing].faces.length) {
             return null;
         }
 
-        const fc: Face = this.thingSpace.data.faceRecognition[nThing].faces[face];    
+        const fc: Face = this.thingSpace.data.faceRecognition[nThing].faces[face];
 
-       // window.alert('fff: ' + fc.maleProb);  
+       // window.alert('fff: ' + fc.maleProb);
 
         return fc;
     }
-/*
-    public getSkin(): CssStylesTiles {
-        if (this.status.skin === 0) return this.maleSkin;
-        else if (this.status.skin === 1) return this.femaleSkin;
-        else return this.maleSkin;
-    }
-*/
+
     public faceRecognition() {
-        
+
+      let nFaces = 0;
+
+      const th: Thing = this.getThing ('faceRecog/faces/number', false);
+
+      if (th != null) {
+
+        nFaces = th.value;
+      }
+
+     // if (this.faces.length !== nFaces) {
+        this.faces.length = 0;
+
+     // }
+
+      for (let i = 1; i <= nFaces; i ++) {
+
+        const face: Face = {
+          label: 0,
+          maleProb: 0,
+          age: 0,
+          confidence: 0,
+          location: {
+            x: 0,
+            y: 0,
+            z: 0
+          },
+          headPose: {
+            r: 0,
+            p: 0,
+            y: 0
+          }
+        };
+
+        const nameBase = 'faceRecog/faces/face' + i;
+
+        const thAge: Thing = this.getThing (nameBase + '/age', false);
+        const thConfidence: Thing = this.getThing (nameBase + '/confidence', false);
+        const thLabel: Thing = this.getThing (nameBase + '/age', false);
+        const thMaleProb: Thing = this.getThing (nameBase + '/maleProb', false);
+
+        if (thAge !== null) {
+          face.age = thAge.value;
+        }
+
+        if (thConfidence !== null) {
+          face.confidence = thConfidence.value;
+        }
+
+        if (thLabel !== null) {
+          face.label = thLabel.value;
+        }
+
+        if (thMaleProb !== null) {
+          face.maleProb = thMaleProb.value;
+        }
+
+        this.faces.push(face);
+
+        /*
+        /myHouse/faceRecog/faces/face1/age :   20
+        /myHouse/faceRecog/faces/face1/confidence :   1
+        /myHouse/faceRecog/faces/face1/headPose/p :   0
+        /myHouse/faceRecog/faces/face1/headPose/r :   0
+        /myHouse/faceRecog/faces/face1/headPose/v :   0
+        /myHouse/faceRecog/faces/face1/label :   1
+        /myHouse/faceRecog/faces/face1/location/h :   0
+        /myHouse/faceRecog/faces/face1/location/w :   0
+        /myHouse/faceRecog/faces/face1/location/x :   0
+        /myHouse/faceRecog/faces/face1/location/y :   0
+        /myHouse/faceRecog/faces/face1/maleProb :   0.9
+        /myHouse/faceRecog/faces/face2/age :   0
+        */
+
+      }
+    }
+
+    /*
+    public faceRecognition() {
+
         const fc: Face = this.getFace(0, 0);
         if (fc !== null) {
             if (fc.maleProb > 0.8) {
@@ -281,6 +418,7 @@ export class GatewayModel  {
             }
         }
     }
+    */
 
     public getSkin(): string {
 
@@ -290,10 +428,10 @@ export class GatewayModel  {
             return this.status.face;
         }
 
-        // Return preferred skin    
-        return this.status.selectedSkin;        
+        // Return preferred skin
+        return this.status.selectedSkin;
     }
-    
+
 }
 
 

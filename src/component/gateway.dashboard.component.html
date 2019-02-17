@@ -13,32 +13,78 @@
             <mat-grid-tile style="background: #423C40;">
                 <app-gateway-info-component style="background: #423C40;" [skin]="this.model.getSkin()" [online]="this.model.status.onlineStatus"></app-gateway-info-component>
             </mat-grid-tile>
-        </span>            
+        </span>
     </span>
-    
+
     <ng-template #NotOnline>
         <mat-grid-tile>
             <app-gateway-info-component [online]="this.model.status.onlineStatus" [skin]="this.model.getSkin()" style="background:rgb(120, 121, 122);"></app-gateway-info-component>
         </mat-grid-tile>
     </ng-template>
 
+
     <span *ngIf="this.model.status.onlineStatus === true">
-       
-       <!-- TEMPs -->
+
+        <!-- Face recognition... -->
+        <span *ngIf="this.model.getSkin() === 'Female'">
+            <mat-grid-tile>
+                <app-gateway-facerec-component style="background: #f5cd79;" [skin]="this.model.getSkin()" [name]="'FaceRecognition'" [nFaces]="this.model.faces.length"></app-gateway-facerec-component>
+            </mat-grid-tile>
+        </span>
+        <span *ngIf="this.model.getSkin() === 'Male'">
+            <mat-grid-tile style="background: #423C40;">
+                <app-gateway-facerec-component style="background: #423C40;" [skin]="this.model.getSkin()" [name]="'FaceRecognition'" [nFaces]="this.model.faces.length"></app-gateway-facerec-component>
+            </mat-grid-tile>
+        </span>
+
+        <!-- Other things -->
+        <span *ngFor="let thing of this.model.thingStatus.data.things">
+          <span *ngIf="thing.atype === 'Temperature'">
+              <span *ngIf="this.model.getSkin() === 'Female'">
+                  <mat-grid-tile>
+                      <app-gateway-temp-component style="background: #778beb;" [skin]="this.model.getSkin()" [name]="thing.name" [temp]="thing.value" [unit]="'°C'"></app-gateway-temp-component>
+                  </mat-grid-tile>
+              </span>
+              <span *ngIf="this.model.getSkin() === 'Male'">
+                  <mat-grid-tile style="background: #423C40;">
+                      <app-gateway-temp-component style="background: #423C40;" [skin]="this.model.getSkin()" [name]="thing.name" [temp]="thing.value" [unit]="'°C'"></app-gateway-temp-component>
+                  </mat-grid-tile>
+              </span>
+          </span>
+
+          <span *ngIf="thing.atype === 'BinaryOutput'">
+              <span *ngIf="this.model.getSkin() === 'Female'">
+                  <mat-grid-tile>
+                      <app-gateway-binout-component style="background: #63cdda;" [skin]="this.model.getSkin()" [name]="thing.name" [output]="thing.value"></app-gateway-binout-component>
+                  </mat-grid-tile>
+              </span>
+              <span *ngIf="this.model.getSkin() === 'Male'">
+                  <mat-grid-tile style="background: #423C40;">
+                      <app-gateway-binout-component style="background: #423C40;" [skin]="this.model.getSkin()" [name]="thing.name" [output]="thing.value"></app-gateway-binout-component>
+                  </mat-grid-tile>
+              </span>
+          </span>
+        </span>
+
+    </span>
+
+    <!-- OLD stuff
+    <span *ngIf="this.model.status.onlineStatus === true">
+
         <span *ngFor="let temp of this.model.thingSpace.data.thermometer">
             <span *ngIf="this.model.getSkin() === 'Female'">
                 <mat-grid-tile>
-                    <app-gateway-temp-component style="background: #778beb;" [skin]="this.model.getSkin()" [name]="temp.name" [temp]="temp.temperature" [unit]="'°C'"></app-gateway-temp-component>            
+                    <app-gateway-temp-component style="background: #778beb;" [skin]="this.model.getSkin()" [name]="temp.name" [temp]="temp.temperature" [unit]="'°C'"></app-gateway-temp-component>
                 </mat-grid-tile>
             </span>
             <span *ngIf="this.model.getSkin() === 'Male'">
                 <mat-grid-tile style="background: #423C40;">
-                    <app-gateway-temp-component style="background: #423C40;" [skin]="this.model.getSkin()" [name]="temp.name" [temp]="temp.temperature" [unit]="'°C'"></app-gateway-temp-component>                              
+                    <app-gateway-temp-component style="background: #423C40;" [skin]="this.model.getSkin()" [name]="temp.name" [temp]="temp.temperature" [unit]="'°C'"></app-gateway-temp-component>
                 </mat-grid-tile>
-            </span>            
+            </span>
         </span>
-       
-        <span *ngFor="let binOut of this.model.thingSpace.data.binaryOutput">        
+
+        <span *ngFor="let binOut of this.model.thingSpace.data.binaryOutput">
             <span *ngIf="this.model.getSkin() === 'Female'">
                 <mat-grid-tile>
                     <app-gateway-binout-component style="background: #63cdda;" [skin]="this.model.getSkin()" [name]="binOut.name" [output]="binOut.output"></app-gateway-binout-component>
@@ -48,10 +94,10 @@
                 <mat-grid-tile style="background: #423C40;">
                     <app-gateway-binout-component style="background: #423C40;" [skin]="this.model.getSkin()" [name]="binOut.name" [output]="binOut.output"></app-gateway-binout-component>
                 </mat-grid-tile>
-            </span>                
-        </span>    
-      
-        <span *ngFor="let faceRec of this.model.thingSpace.data.faceRecognition">            
+            </span>
+        </span>
+
+        <span *ngFor="let faceRec of this.model.thingSpace.data.faceRecognition">
             <span *ngIf="this.model.getSkin() === 'Female'">
                 <mat-grid-tile>
                     <app-gateway-facerec-component style="background: #f5cd79;" [skin]="this.model.getSkin()" [name]="'FaceRecognition'" [nFaces]="faceRec.faces.length"></app-gateway-facerec-component>
@@ -61,10 +107,10 @@
                 <mat-grid-tile style="background: #423C40;">
                     <app-gateway-facerec-component style="background: #423C40;" [skin]="this.model.getSkin()" [name]="'FaceRecognition'" [nFaces]="faceRec.faces.length"></app-gateway-facerec-component>
                 </mat-grid-tile>
-            </span>                            
-        </span>     
-    </span>   
-  
+            </span>
+        </span>
+    </span>
+    -->
 
     <!-- Logos -->
     <span *ngIf="this.model.getSkin() === 'Female'">
@@ -76,7 +122,7 @@
         <mat-grid-tile style="background: #9a9d9e;">
             <app-gateway-about-component style="background: #9a9d9e;" [skin]="this.model.getSkin()" [logo] = "'./theme/IOT-logo.png'"></app-gateway-about-component>
         </mat-grid-tile>
-    </span>        
+    </span>
 
     <span *ngIf="this.model.getSkin() === 'Female'">
         <mat-grid-tile>
@@ -87,10 +133,10 @@
         <mat-grid-tile style="background: #9a9d9e;">
             <app-gateway-about-component style="background: #9a9d9e;" [skin]="this.model.getSkin()" [logo] = "'./theme/Logimic_logo_full.png'"></app-gateway-about-component>
         </mat-grid-tile>
-    </span>        
- 
+    </span>
+
     <!-- Settings -->
-    <span *ngIf="this.model.status.onlineStatus === true">        
+    <span *ngIf="this.model.status.onlineStatus === true">
         <span *ngIf="this.model.getSkin() === 'Female'">
             <mat-grid-tile>
                 <app-gateway-settings-component style="background: #f3a683;" ></app-gateway-settings-component>
@@ -100,7 +146,7 @@
             <mat-grid-tile style="background: #9a9d9e;">
                 <app-gateway-settings-component style="background: #9a9d9e;" [skin]="this.model.getSkin()"></app-gateway-settings-component>
             </mat-grid-tile>
-        </span>        
+        </span>
     </span>
 
  </mat-grid-list>

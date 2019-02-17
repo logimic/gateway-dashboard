@@ -10,7 +10,7 @@ import { GatewayService } from '../gateway/gateway.service';
 export class GatewayFacerecComponent {
 
     @Input()
-    public skin = 'Female';      
+    public skin = 'Female';
 
     @Input()
     public name = 'Face Recognition';
@@ -24,6 +24,7 @@ export class GatewayFacerecComponent {
     /*
     * Returns type of face
     */
+   /*
     public getFaceType(n: number): number {
 
         const fc: Face = this.model.getFace(0, 0);
@@ -34,7 +35,9 @@ export class GatewayFacerecComponent {
 
         return 0;
     }
+*/
 
+/*
     public isMale(n: number): boolean {
 
         // return true;
@@ -49,10 +52,29 @@ export class GatewayFacerecComponent {
                 return false;
             }
             //return fc.maleProb;
-        }        
+        }
 
         return false;
-        
+
     }
-  
+*/
+
+  public isMale(n: number): boolean {
+
+    // return true;
+
+    if (this.model.faces.length > 0) {
+
+      const fc: Face = this.model.faces[0];
+
+      if (fc.maleProb > 0.6) {
+        return true;
+      } else {
+          return false;
+      }
+     }
+
+    return false;
+
+  }
 }

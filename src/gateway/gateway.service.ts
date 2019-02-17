@@ -4,7 +4,6 @@ import { Http } from '@angular/http';
 import * as oegwThings from './oegw-things';
 
 
-
 @Injectable()
 export class GatewayService {
 
@@ -24,12 +23,10 @@ export class GatewayService {
         initSkin: 'Female'
     };
 
-    //msgArray: Msg[];
-
     private connection: WebSocket = null;
-    public emitorMachineStatus$: EventEmitter<ServerStatus> = new EventEmitter();
+    // public emitorMachineStatus$: EventEmitter<ServerStatus> = new EventEmitter();
     public emitorOnlineStatus$: EventEmitter<boolean> = new EventEmitter();
-    public emitorMessage2$: EventEmitter<String> = new EventEmitter();
+    // public emitorMessage2$: EventEmitter<String> = new EventEmitter();
     public emitorMessage$: EventEmitter<any> = new EventEmitter();
     public emitorWsOegw$: EventEmitter<ConfigWS> = new EventEmitter();
     public emitorConfigDashboard$: EventEmitter<ConfigDashboard> = new EventEmitter();
@@ -42,7 +39,7 @@ export class GatewayService {
 
         this.loadConfig();
         this.loadConfigDashboard();
-        this.connectionTimer(2000);        
+        this.connectionTimer(2000);
     }
 
 
@@ -55,14 +52,10 @@ export class GatewayService {
             this.wsOegw.valid = true;
 
             if (this.wsOegw.detectServer) {
-              this.wsOegw.wsServer = 'ws://' + this.hostname + ':' + this.wsOegw.wsPort;  
+              this.wsOegw.wsServer = 'ws://' + this.hostname + ':' + this.wsOegw.wsPort;
             } else {
                 this.wsOegw.wsServer = 'ws://' + this.wsOegw.wsIP + ':1341';
             }
-            
-          //  this.wsOegw.wsServer = 'ws://' + this.hostname + ':1341';
-
-            // window.alert('SRV: ' + this.wsOegw.wsServer);
 
             this.emitorWsOegw$.emit(this.wsOegw);
         });
@@ -130,29 +123,7 @@ export class GatewayService {
     * This sends message to gateway.
     */
    public sendMessage(msg: string) {
-       /*
-        try {
-            const mm = JSON.parse(msg);
 
-            try {
-                this.connection.send(msg);
-
-                const m = new Msg();
-                m.req = msg;
-                this.msgArray.push(m);
-            }catch (e) {
-                const m = new Msg();
-                m.req = 'Error with sending, not sent: ' + msg;
-                m.resp = 'Error does not exists';
-                this.msgArray.push(m);
-            }
-        } catch (e) {
-            const m = new Msg();
-            m.req = 'Error with parsing, not sent: ' + msg;
-            m.resp = 'Error does not exists';
-            this.msgArray.push(m);
-        }
-        */
     }
    /*
     *
@@ -173,51 +144,6 @@ export class GatewayService {
         }catch (e) {
             msgStr = '' + msg.data;
         }
-
-/*
-        try {
-            const json = JSON.parse(msg.data);
-
-            if (json.mType) {
-                if (json.mType === 'thingSpace') {
-                    self.emitorThingSpace$.emit(json as oegwThings.ThingSpace);
-                }
-            } else {
-                // self.emitor$.emit(json.data as PointMachine);
-            // window.alert(message.data);
-            }
-        } catch (e) {
-            console.log('This doesn\'t look like a valid JSON: ',
-                msg.data);
-        return;
-        }
-        */
-    }
-/*
-    public getMType (msgStr: string): string {
-        let mType = '';
-        try {
-            const mm = JSON.parse(msgStr);
-
-            mType = mm.mType.toString();
-        }catch (e) {
-            return 'not in message';
-        }
-
-        return mType;
     }
 
-    public getStatus (msgStr: string): string {
-        let status = '';
-        try {
-            const mm = JSON.parse(msgStr);
-
-            status = mm.data.status.toString();
-        }catch (e) {
-            return 'not in message';
-        }
-
-        return status;
-    }
-    */
 }
