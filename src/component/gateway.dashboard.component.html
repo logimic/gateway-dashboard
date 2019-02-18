@@ -28,7 +28,7 @@
         <!-- Face recognition... -->
         <span *ngIf="this.model.getSkin() === 'Female'">
             <mat-grid-tile>
-                <app-gateway-facerec-component style="background: #f5cd79;" [skin]="this.model.getSkin()" [name]="'FaceRecognition'" [nFaces]="this.model.faces.length"></app-gateway-facerec-component>
+                <app-gateway-facerec-component style="background: #F1948A;" [skin]="this.model.getSkin()" [name]="'FaceRecognition'" [nFaces]="this.model.faces.length"></app-gateway-facerec-component>
             </mat-grid-tile>
         </span>
         <span *ngIf="this.model.getSkin() === 'Male'">
@@ -38,7 +38,11 @@
         </span>
 
         <!-- Other things -->
-        <span *ngFor="let thing of this.model.thingStatus.data.things">
+        <span *ngFor="let thing of this.model.thingStatus.data.things; let i = index">
+
+            <span *ngIf="i === 0;">{{this.clearCount()}}</span>
+
+          <!--
           <span *ngIf="thing.atype === 'Temperature'">
               <span *ngIf="this.model.getSkin() === 'Female'">
                   <mat-grid-tile>
@@ -51,7 +55,8 @@
                   </mat-grid-tile>
               </span>
           </span>
-
+        -->
+          <!--
           <span *ngIf="thing.atype === 'BinaryOutput'">
               <span *ngIf="this.model.getSkin() === 'Female'">
                   <mat-grid-tile>
@@ -64,8 +69,24 @@
                   </mat-grid-tile>
               </span>
           </span>
-        </span>
+        -->
 
+            <span *ngIf="this.isValidThing(thing.name) === true"> <!-- filter out face recog things...-->
+              {{this.count()}}
+              <span *ngIf="this.getCount() <= this.GetNumTiles()">
+                <span *ngIf="this.model.getSkin() === 'Female'">
+                    <mat-grid-tile>
+                        <app-gateway-thing-component [style.background]="getBkColorFemale(thing.atype)" [skin]="this.model.getSkin()" [name]="thing.name" [value]="thing.value" [atype]="thing.atype" [unit]="thing.unit"></app-gateway-thing-component>
+                    </mat-grid-tile>
+                </span>
+                <span *ngIf="this.model.getSkin() === 'Male'">
+                    <mat-grid-tile style="background: #423C40;">
+                        <app-gateway-thing-component style="background: #423C40;" [skin]="this.model.getSkin()" [name]="thing.name" [value]="thing.value" [atype]="thing.atype" [unit]="thing.unit"></app-gateway-thing-component>
+                    </mat-grid-tile>
+                </span>
+              </span>
+            </span>
+        </span>
     </span>
 
     <!-- OLD stuff

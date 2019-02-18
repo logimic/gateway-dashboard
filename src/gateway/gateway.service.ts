@@ -20,6 +20,7 @@ export class GatewayService {
 
     public cfgDashboard: ConfigDashboard = {
         numberColumns: 3,
+        numberRows: 3,
         initSkin: 'Female'
     };
 
@@ -65,6 +66,7 @@ export class GatewayService {
         const path = './assets/cfg/dashboardConfig.json';
         this.http.get(path).subscribe(data => {
             this.cfgDashboard.numberColumns = data.json().numberColumns;
+            this.cfgDashboard.numberRows = data.json().numberRows;
             this.cfgDashboard.initSkin = data.json().initSkin;
 
             this.emitorConfigDashboard$.emit(this.cfgDashboard);

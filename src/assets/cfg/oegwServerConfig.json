@@ -1,5 +1,5 @@
 {
     "wsIP": "127.0.0.1",
-    "wsPort": "1341",    
-    "detectServer": true        
+    "wsPort": "1341",
+    "detectServer": true
 }

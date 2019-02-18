@@ -1,0 +1,74 @@
+<div *ngIf="this.skin === 'Female'">
+
+   <span [ngSwitch]="this.atype">
+      <!---->
+      <span *ngSwitchCase="'BinaryOutput'">
+        <span *ngIf="this.value">
+          <img class="imgSymbolFemale" src="./theme/bulbOn.png" alt="Lights">
+        </span>
+
+        <span *ngIf="!this.value">
+          <img class="imgSymbolFemale" src="./theme/bulbOff.png" alt="Lights">
+        </span>
+
+        <div class="textValueFemale">
+          <span *ngIf="this.value"> On </span>
+          <span *ngIf="!this.value"> Off </span>
+        </div>
+      </span>
+      <!---->
+      <span *ngSwitchCase="'Temperature'">
+        <img class="imgSymbolFemale" src="./theme/temp.png" alt="Lights">
+        <div class="textValueFemale">
+          {{this.value}} {{this.getUnit()}}
+        </div>
+      </span>
+      <!---->
+      <span *ngSwitchDefault>
+        <div class="textValueFemale">
+          {{this.value}}{{this.getUnit()}}
+        </div>
+      </span>
+    </span>
+
+    <div class="textNameFemale">
+        {{this.name}}
+    </div>
+</div>
+
+<div *ngIf="this.skin === 'Male'">
+  <span [ngSwitch]="this.atype">
+    <!---->
+    <span *ngSwitchCase="'BinaryOutput'">
+      <div class="textValueMale">
+        <span *ngIf="this.value" style="color:yellow;"> On </span>
+        <span *ngIf="!this.value"> Off </span>
+      </div>
+
+      <div class="textNameMale">
+        <span *ngIf="this.value" style="color:yellow;"> {{this.name}} </span>
+        <span *ngIf="!this.value"> {{this.name}} </span>
+      </div>
+    </span>
+    <!---->
+    <span *ngSwitchCase="'Temperature'">
+      <div class="textValueMale">
+        {{this.value}} {{this.getUnit()}}
+      </div>
+      <div class="textNameMale">
+        {{this.name}}
+      </div>
+    </span>
+    <!---->
+    <span *ngSwitchDefault>
+      <div class="textValueMale">
+          {{this.value}} {{this.getUnit()}}
+      </div>
+
+      <div class="textNameMale">
+          {{this.name}}
+      </div>
+    </span>
+  </span>
+</div>
+

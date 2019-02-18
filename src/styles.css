@@ -8,7 +8,7 @@
 @import 'https://fonts.googleapis.com/css?family=Trade+Winds';
 
 @import 'https://fonts.googleapis.com/css?family=Bai+Jamjuree:400,700';
-  
+
 .basic-container {
     padding: 5px;
 }
@@ -22,18 +22,18 @@
     z-index: 3;
     background: rgba(155, 31, 31, 0.5);
 }
-  
-body { 
-    margin: 0; 
-    font-family: Arial, Helvetica, sans-serif; 
-    overflow: hidden; 
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
     background-color: #000000;
 }
 
 canvas { width: 100%; height: 100% }
 
 webglcanvas{
-    display: block; position: absolute; 
+    display: block; position: absolute;
     top:0px;
     left:0px;
     right:100px;
@@ -46,7 +46,7 @@ webglcanvas{
     background-color: #000000;
     text-align: center;
     vertical-align: middle;
-    position: absolute; 
+    position: absolute;
     top: 0px;left:0px;right: 0px;bottom: 0px;z-index: 2;
 }
 
@@ -71,7 +71,7 @@ webglcanvas{
 
 .loader {
     display: inline-block;
-    
+
     border: 16px solid #f3f3f3;
     border-radius: 50%;
     border-top: 16px solid lightgrey;
@@ -105,7 +105,7 @@ cobalt-progress
 .appTitle{
     color: rgb(97, 3, 105);
     width: 100%;
-    text-align: center;    
+    text-align: center;
     font: bold 26px arial, sans-serif;
     vertical-align: middle;
     /*margin-left: 10px;*/
@@ -114,7 +114,7 @@ cobalt-progress
 .statusText{
     color: rgb(97, 3, 105);
     width: 100%;
-    text-align: left;    
+    text-align: left;
     font: 16px arial, sans-serif;
     /*vertical-align: middle;*/
     /*margin-left: 10px;*/
@@ -123,7 +123,7 @@ cobalt-progress
 .endGrabAxesText{
     color: rgb(97, 3, 105);
     width: 100%;
-    text-align: left;    
+    text-align: left;
     font: 18px 'Roboto', sans-serif;
     vertical-align: middle;
     margin-left: 10px;
@@ -132,15 +132,15 @@ cobalt-progress
 .messageText{
     color: rgb(255, 0, 0);
     width: 100%;
-    text-align: left;    
+    text-align: left;
     font: bold 22px 'Roboto', sans-serif;
     vertical-align: top;
     margin-left: 10px;
 }
 
 app-gateway-dashboard-component {
-    position: absolute; 
-    display: block; 
+    position: absolute;
+    display: block;
     top:5px;
     left:5px;
     right:5px;
@@ -160,8 +160,8 @@ app-gateway-dashboard-component {
     border-radius:100%;
     background-color:rgb(40, 228, 81);
     /*color:#FFFFFF;*/
-    text-align:center;   
-    vertical-align: middle; 
+    text-align:center;
+    vertical-align: middle;
     font-size:16px;
     overflow:hidden;
   }
@@ -176,8 +176,8 @@ app-gateway-dashboard-component {
     border-radius:100%;
     background-color:rgb(111, 116, 116);
     /*color:#FFFFFF;*/
-    text-align:center;   
-    vertical-align: middle; 
+    text-align:center;
+    vertical-align: middle;
     font-size:16px;
     overflow:hidden;
   }
@@ -189,9 +189,9 @@ app-gateway-dashboard-component {
     right: 40px;
     font-size:16px;
     color:hsl(278, 51%, 38%);
-    text-align:right;   
-    vertical-align: middle;     
-}  
+    text-align:right;
+    vertical-align: middle;
+}
 
 .logo {
     position: absolute;
@@ -228,8 +228,8 @@ app-gateway-dashboard-component {
     border-radius:100%;
     background-color:rgb(40, 228, 81);
     /*color:#FFFFFF;*/
-    text-align:center;   
-    vertical-align: middle; 
+    text-align:center;
+    vertical-align: middle;
     font-size:16px;
     overflow:hidden;
   }
@@ -244,11 +244,11 @@ app-gateway-dashboard-component {
     border-radius:100%;
     background-color:rgb(228, 40, 40);
     /*color:#FFFFFF;*/
-    text-align:center;   
-    vertical-align: middle; 
+    text-align:center;
+    vertical-align: middle;
     font-size:16px;
     overflow:hidden;
-  }  
+  }
 
  .example-radio-group {
   display: inline-flex;
@@ -263,109 +263,106 @@ app-gateway-dashboard-component {
   margin: 15px 0;
 }
 
-.textNameFemale{  
- 
+.textNameFemale{
+
   position: absolute;
   display: block;
   color: rgb(29, 78, 143);
-  font: 30px 'Trade Winds', cursive;  
-  left: 50%;  
+  font: 30px 'Trade Winds', cursive;
+  left: 50%;
   transform: translateX(-50%);
-  bottom: 10%;  
-  font-size: 2.0vw; 
+  bottom: 0%;
+  font-size: 2.0vw;
     /* 100 = viewport width, as 1vw = 1/100th of that
        So if the container is 50% of viewport (as here)
        then factor that into how you want it to size.
        Let's say you like 5vw if it were the whole width,
        then for this container, size it at 2.5vw (5 * .5 [i.e. 50%])
-    */  
-  
+    */
+
 }
 
-.textValueFemale{  
+.textValueFemale{
 
   color: rgb(29, 78, 143);
-  font: 60px 'Trade Winds', cursive;   
+  font: 60px 'Trade Winds', cursive;
   position: absolute;
   float: left;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);  
-  font-size: 3.0vw; 
+  transform: translate(-50%, -50%);
+  font-size: 3.0vw;
     /* 100 = viewport width, as 1vw = 1/100th of that
        So if the container is 50% of viewport (as here)
        then factor that into how you want it to size.
        Let's say you like 5vw if it were the whole width,
        then for this container, size it at 2.5vw (5 * .5 [i.e. 50%])
-    */  
+    */
    white-space: nowrap;
-  
+
 }
 
 .imgSymbolFemale {
 
   position: absolute;
- 
+
   height: 35%;
   top: 50%;
   left: 5%;
-  transform: translate(0%, -50%);  
+  transform: translate(0%, -50%);
 }
 
-.textHelloFemale{  
-    
+.textHelloFemale{
+
     color: rgb(29, 78, 143);
-    font: 20px 'Trade Winds', cursive;  
+    font: 20px 'Trade Winds', cursive;
     position: absolute;
     float: left;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);    
-    font-size: 1.5vw;  
+    transform: translate(-50%, -50%);
+    font-size: 1.5vw;
 }
 
 .imgSymbolLogo {
 
   position: absolute;
- 
+
   height: 35%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);  
+  transform: translate(-50%, -50%);
 }
 
-.textNameMale{  
- 
+.textNameMale{
+
   position: absolute;
   display: block;
   color: #A0A0A4;
-  font: 40px  'Bai Jamjuree', sans-serif;
-  left: 50%;  
+  font: 36px  'Bai Jamjuree', sans-serif;
+  left: 50%;
   transform: translateX(-50%);
-  bottom: 10%;  
-  font-size: 2.5vw;  
-  
+  bottom: 0%;
+  font-size: 2.5vw;
+
 }
 
-.textValueMale{  
+.textValueMale{
 
   color: #A0A0A4;
-  font: 80px 'Bai Jamjuree', sans-serif;
+  font: 70px 'Bai Jamjuree', sans-serif;
   font-weight: bold;
   position: absolute;
   /*float: left;*/
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);  
-  font-size: 4.8vw;  
+  transform: translate(-50%, -60%);
+  font-size: 4.8vw;
   white-space: nowrap;
-
- 
-  
 }
 
-.textHelloMale{  
-    
+.textHelloMale{
+
     color: #A0A0A4;
     font: 60px 'Bai Jamjuree', sans-serif;
     font-weight: bold;
@@ -373,19 +370,19 @@ app-gateway-dashboard-component {
     float: left;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);     
-    font-size: 3.5vw;  
+    transform: translate(-50%, -50%);
+    font-size: 3.5vw;
 }
 
 .radioStyleFemale {
 
   position: absolute;
   color: rgb(29, 78, 143);
-  font: 16px 'Trade Winds', cursive;  
+  font: 16px 'Trade Winds', cursive;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);  
-  font-size: 1.5vw;  
+  transform: translate(-50%, -50%);
+  font-size: 1.5vw;
 
 
 }
@@ -397,8 +394,8 @@ app-gateway-dashboard-component {
   /*height: 35%;*/
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);  
-  font-size: 1.5vw;  
-  
-  
+  transform: translate(-50%, -50%);
+  font-size: 1.5vw;
+
+
 }

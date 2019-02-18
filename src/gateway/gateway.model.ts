@@ -46,6 +46,7 @@ export interface ConfigWS {
 
 export interface ConfigDashboard {
     numberColumns: number;
+    numberRows: number;
     initSkin: string;
 }
 
@@ -150,6 +151,7 @@ export class GatewayModel  {
 
     public cfgDashboard: ConfigDashboard = {
         numberColumns: 4,
+        numberRows: 3,
         initSkin: 'Female'
     };
 
@@ -402,6 +404,19 @@ export class GatewayModel  {
         */
 
       }
+
+      if (this.faces.length === 1) {
+
+        if (this.faces[0].maleProb > 0.8) {
+          this.status.skin = 0;
+          this.status.face = 'Male';
+        } else {
+          this.status.skin = 1;
+          this.status.face = 'Female';
+      }
+
+      }
+
     }
 
     /*

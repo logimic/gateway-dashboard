@@ -9,6 +9,7 @@ import { GatewayDashboardComponent} from '../component/gateway.dashboard.compone
 import { GatewayInfoComponent} from '../component/gateway.info.component';
 import { GatewayTempComponent} from '../component/gateway.temp.component';
 import { GatewayBinoutComponent} from '../component/gateway.binout.component';
+import { GatewayThingComponent} from '../component/gateway.thing.component';
 import { GatewayFacerecComponent} from '../component/gateway.facerec.component';
 import { GatewayAboutComponent} from '../component/gateway.about.component';
 import { GatewaySettingsComponent} from '../component/gateway.settings.component';
@@ -118,7 +119,8 @@ export class MaterialModule {}
     GatewayBinoutComponent,
     GatewayFacerecComponent,
     GatewayAboutComponent,
-    GatewaySettingsComponent
+    GatewaySettingsComponent,
+    GatewayThingComponent
    // WebGlComponent,
    // ZoomDirectionComponent
   ],
