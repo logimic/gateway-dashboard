@@ -94,6 +94,16 @@ export class GatewayDashboardComponent {
 
       if (name.search('faceRecog') !== -1) {
         return false;
+
+      } else if (name.search('cooper/Extra-low_voltage') !== -1) {
+        return false;
+
+      } else if (name.search('up2/ledg') !== -1) {
+        return false;
+
+      } else if (name.search('up2/ledr') !== -1) {
+        return false;
+
       }
 
       return true;
@@ -110,19 +120,17 @@ export class GatewayDashboardComponent {
         return false;
       } else if (atype.search('Frequency') !== -1) {
         return false;
-      } else if (atype.search('Current') !== -1) {
-        return false;
       } else if (atype.search('Power') !== -1) {
         return false;
-      } else if (atype.search('Undef') !== -1) {
+      } else if (atype.search('PowerFactor') !== -1) {
         return false;
-      } else if (atype.search('Voltage') !== -1) {
-        return true;
+      }  else if (atype.search('Undef') !== -1) {
+        return false;
+      } else if (atype.search('Consumption') !== -1) {
+        return false;
+      } else if (atype.search('DateTime') !== -1) {
+        return false;
       }
-
-
-
-
 
       return true;
     }

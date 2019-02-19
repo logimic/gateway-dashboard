@@ -70,7 +70,7 @@ export class GatewayThingComponent implements AfterViewInit {
         return 'sec';
 
       } else if (this.unit === 'Ppm') {
-        return 'p/m';
+        return 'ppm';
 
       } else if (this.unit === 'Volt') {
         return 'V';
@@ -100,10 +100,10 @@ export class GatewayThingComponent implements AfterViewInit {
         return 'µg/m3';
 
       } else if (this.unit === 'DeciBell') {
-        return 'db';
+        return 'dB';
 
       } else if (this.unit === 'MeterPerSecond2') {
-        return 'm/sec';
+        return 'm/sec2';
 
       } else if (this.unit === 'Percent') {
         return '%';
@@ -120,7 +120,7 @@ export class GatewayThingComponent implements AfterViewInit {
 
       if (this.name.search('Volatile_organic_compound') !== -1) {
         const regex = /Volatile_organic_compound/gi;
-        const newName = this.name.replace(regex, 'Concentration');
+        const newName = this.name.replace(regex, 'VolOrgCompound');
         return newName;
 
       } else if (this.name.search('Extra-low_voltage') !== -1) {
@@ -146,6 +146,11 @@ export class GatewayThingComponent implements AfterViewInit {
       } else if (this.name.search('Sound_pressure_level') !== -1) {
         const regex = /Sound_pressure_level/gi;
         const newName = this.name.replace(regex, 'Noise');
+        return newName;
+
+      } else if (this.name.search('Relative_humidity') !== -1) {
+        const regex = /Relative_humidity/gi;
+        const newName = this.name.replace(regex, 'Humidity');
         return newName;
 
       }
