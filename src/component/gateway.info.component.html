@@ -11,14 +11,20 @@
 
 <div *ngIf="this.skin === 'Male'">
     <span *ngIf="this.online == true; else NotOnline">
-        <span class="textHelloMale" style="color:green;">
-            online
+        <span class="textValueMale" style="color:green;">
+          online
+        </span>
+        <span class="textNameMale" style="color:green;">
+          Open Edge Gateway
         </span>
     </span>
 
     <ng-template #NotOnline>
-        <span class="textHelloMale">
-            offline
+        <span class="textValueMale" style="color:rgb(187, 187, 187);">
+          offline
+        </span>
+        <span class="textNameMale" style="color:rgb(187, 187, 187);">
+          Open Edge Gateway
         </span>
     </ng-template>
 </div>

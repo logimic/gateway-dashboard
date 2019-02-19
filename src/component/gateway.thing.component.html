@@ -16,6 +16,9 @@
           <span *ngIf="this.value"> On </span>
           <span *ngIf="!this.value"> Off </span>
         </div>
+        <div class="textUnitsFemale">
+          on/off
+        </div>
       </span>
       <!---->
       <span *ngSwitchCase="'Temperature'">
@@ -68,6 +71,16 @@
         </div>
       </span>
       <!---->
+      <span *ngSwitchCase="'Voltage'">
+        <img class="imgSymbolFemale" src="./theme/voltage.png" alt="Lights">
+        <div class="textValueFemale">
+          {{this.getNumber()}}
+        </div>
+        <div class="textUnitsFemale">
+          {{this.getUnit()}}
+        </div>
+      </span>
+      <!---->
       <span *ngSwitchDefault>
         <div class="textValueFemale">
           {{this.getNumber()}}
@@ -91,7 +104,9 @@
         <span *ngIf="this.value" style="color:yellow;"> On </span>
         <span *ngIf="!this.value"> Off </span>
       </div>
-
+      <div class="textUnitsMale">
+        on/off
+      </div>
       <div class="textNameMale">
         <span *ngIf="this.value" style="color:yellow;"> {{this.name}} </span>
         <span *ngIf="!this.value"> {{this.name}} </span>

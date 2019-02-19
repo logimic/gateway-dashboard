@@ -52,8 +52,8 @@ export class GatewayTimeComponent implements AfterViewInit {
         this.colorSecHand = '#FF0000';
         this.colorOuterDial = '#929BAC';
 
-        this.colorDay = '#3498DB';
-        this.styleDay = '30px Trade Winds, cursive';
+        this.colorDay = 'rgb(29, 78, 143)';
+        this.styleDay = '30px Merienda One, cursive';
       }
 
       // Start timer
@@ -99,7 +99,7 @@ export class GatewayTimeComponent implements AfterViewInit {
 
       this.context.fillStyle = this.colorDay;
       this.context.font = this.styleDay;
-      this.context.fillText(date, 5, this.canvas.nativeElement.height - 10);
+      this.context.fillText(date, 2, this.canvas.nativeElement.height - 10);
 
       const options2 = { year: 'numeric'};
       const date2 = this.date.toLocaleDateString('en-ZA', options2);

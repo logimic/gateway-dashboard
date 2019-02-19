@@ -72,9 +72,13 @@ export class GatewayDashboardComponent {
       } else if (atype === 'BinaryOutput') {
         return '#F8C471';
 
+      } else if (atype === 'RelativeHumidity') {
+        return '#76D7C4';
+
       } else  {
         return '#C39BD3';
       }
+
     }
 
     public isValidThing (name: string): boolean {
@@ -92,7 +96,13 @@ export class GatewayDashboardComponent {
         return false;
       } else if (atype.search('BinaryData') !== -1) {
         return false;
+      } else if (atype.search('Time') !== -1) {
+        return false;
+      } else if (atype.search('Frequency') !== -1) {
+        return false;
       }
+
+
 
       return true;
     }

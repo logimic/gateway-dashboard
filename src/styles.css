@@ -9,6 +9,9 @@
 
 @import 'https://fonts.googleapis.com/css?family=Bai+Jamjuree:400,700';
 
+@import 'https://fonts.googleapis.com/css?family=Lemon';
+@import 'https://fonts.googleapis.com/css?family=Merienda+One';
+
 .basic-container {
     padding: 5px;
 }
@@ -266,13 +269,14 @@ app-gateway-dashboard-component {
 .textValueFemale{
 
   color: rgb(29, 78, 143);
-  font: 60px 'Trade Winds', cursive;
+  /*font: 60px 'Trade Winds', cursive;*/
+  font: 60px 'Merienda One', cursive;
   position: absolute;
   float: left;
   top: 50%;
   left: 60%;
   transform: translate(-50%, -50%);
-  font-size: 3.0vw;
+  font-size: 3.2vw;
     /* 100 = viewport width, as 1vw = 1/100th of that
        So if the container is 50% of viewport (as here)
        then factor that into how you want it to size.
@@ -286,13 +290,14 @@ app-gateway-dashboard-component {
 .textUnitsFemale{
 
   color: rgb(29, 78, 143);
-  font: 60px 'Trade Winds', cursive;
+  /*font: 60px 'Trade Winds', cursive;*/
+  font: 60px 'Merienda One', cursive;
   position: absolute;
   float: left;
   top: 20%;
   left: 60%;
   transform: translate(-50%, -50%);
-  font-size: 2.1vw;
+  font-size: 2.0vw;
     /* 100 = viewport width, as 1vw = 1/100th of that
        So if the container is 50% of viewport (as here)
        then factor that into how you want it to size.
@@ -309,18 +314,19 @@ app-gateway-dashboard-component {
   position: absolute;
   display: block;
   color: rgb(29, 78, 143);
-  font: 30px 'Trade Winds', cursive;
+  /*font: 30px 'Trade Winds', cursive;*/
+  font: 30px 'Merienda One', cursive;
   left: 50%;
   transform: translateX(-50%);
   bottom: 5%;
-  font-size: 2.0vw;
+  font-size: 1.5vw;
     /* 100 = viewport width, as 1vw = 1/100th of that
        So if the container is 50% of viewport (as here)
        then factor that into how you want it to size.
        Let's say you like 5vw if it were the whole width,
        then for this container, size it at 2.5vw (5 * .5 [i.e. 50%])
     */
-
+  white-space: nowrap;
 }
 
 .imgSymbolFemale {
@@ -336,13 +342,13 @@ app-gateway-dashboard-component {
 .textHelloFemale{
 
     color: rgb(29, 78, 143);
-    font: 20px 'Trade Winds', cursive;
+    font: 20px 'Merienda One', cursive;
     position: absolute;
     float: left;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 1.5vw;
+    font-size: 1.4vw;
 }
 
 .imgSymbolLogo {
@@ -372,14 +378,14 @@ app-gateway-dashboard-component {
 .textUnitsMale{
 
   color: #A0A0A4;
-  font: 70px 'Bai Jamjuree', sans-serif;
+  font: 36px 'Bai Jamjuree', sans-serif;
   font-weight: bold;
   position: absolute;
   /*float: left;*/
-  top: 50%;
+  top: 60%;
   left: 50%;
-  transform: translate(-50%, -30%);
-  font-size: 3.0vw;
+  transform: translate(-50%, -50%);
+  font-size: 2.2vw;
   white-space: nowrap;
 }
 
@@ -392,8 +398,8 @@ app-gateway-dashboard-component {
   left: 50%;
   transform: translateX(-50%);
   bottom: 5%;
-  font-size: 2.1vw;
-
+  font-size: 1.5vw;
+  white-space: nowrap;
 }
 
 .textHelloMale{

@@ -31,7 +31,7 @@
         <!-- Face recognition... -->
         <span *ngIf="this.model.getSkin() === 'Female'">
             <mat-grid-tile>
-                <app-gateway-facerec-component style="background: #F1948A;" [skin]="this.model.getSkin()" [name]="'FaceRecognition'" [nFaces]="this.model.faces.length"></app-gateway-facerec-component>
+                <app-gateway-facerec-component style="background: #F9E79F;" [skin]="this.model.getSkin()" [name]="'FaceRecognition'" [nFaces]="this.model.faces.length"></app-gateway-facerec-component>
             </mat-grid-tile>
         </span>
         <span *ngIf="this.model.getSkin() === 'Male'">
