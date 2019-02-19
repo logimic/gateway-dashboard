@@ -108,13 +108,49 @@ export class GatewayThingComponent implements AfterViewInit {
       } else if (this.unit === 'Percent') {
         return '%';
 
-      } else if (this.unit === 'Watthour') {
-        return 'Whr';
+      } else if (this.unit === 'WattHour') {
+        return 'Wh';
 
       }
 
       return ' ';
+    }
 
+    public getName (): string {
+
+      if (this.name.search('Volatile_organic_compound') !== -1) {
+        const regex = /Volatile_organic_compound/gi;
+        const newName = this.name.replace(regex, 'Concentration');
+        return newName;
+
+      } else if (this.name.search('Extra-low_voltage') !== -1) {
+        const regex = /Extra-low_voltage/gi;
+        const newName = this.name.replace(regex, 'Voltage');
+        return newName;
+
+      } else if (this.name.search('Low_voltage') !== -1) {
+        const regex = /Low_voltage/gi;
+        const newName = this.name.replace(regex, 'Voltage');
+        return newName;
+
+      } else if (this.name.search('Atmospheric_pressure') !== -1) {
+        const regex = /Atmospheric_pressure/gi;
+        const newName = this.name.replace(regex, 'AtmPressure');
+        return newName;
+
+      } else if (this.name.search('Carbon_dioxide') !== -1) {
+        const regex = /Carbon_dioxide/gi;
+        const newName = this.name.replace(regex, 'CO2');
+        return newName;
+
+      } else if (this.name.search('Sound_pressure_level') !== -1) {
+        const regex = /Sound_pressure_level/gi;
+        const newName = this.name.replace(regex, 'Noise');
+        return newName;
+
+      }
+
+      return this.name;
     }
 
     public getNumber(): number {

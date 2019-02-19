@@ -81,6 +81,46 @@
         </div>
       </span>
       <!---->
+      <span *ngSwitchCase="'Concentration'">
+        <img class="imgSymbolFemale" src="./theme/concentration.png" alt="Lights">
+        <div class="textValueFemale">
+          {{this.getNumber()}}
+        </div>
+        <div class="textUnitsFemale">
+          {{this.getUnit()}}
+        </div>
+      </span>
+      <!---->
+      <span *ngSwitchCase="'Altitude'">
+        <img class="imgSymbolFemale" src="./theme/altitude.png" alt="Lights">
+        <div class="textValueFemale">
+          {{this.getNumber()}}
+        </div>
+        <div class="textUnitsFemale">
+          {{this.getUnit()}}
+        </div>
+      </span>
+      <!---->
+      <span *ngSwitchCase="'Illuminance'">
+        <img class="imgSymbolFemale" src="./theme/illuminance.png" alt="Lights">
+        <div class="textValueFemale">
+          {{this.getNumber()}}
+        </div>
+        <div class="textUnitsFemale">
+          {{this.getUnit()}}
+        </div>
+      </span>
+      <!---->
+      <span *ngSwitchCase="'Consumption'">
+        <img class="imgSymbolFemale" src="./theme/powerFactor.png" alt="Lights">
+        <div class="textValueFemale">
+          {{this.getNumber()}}
+        </div>
+        <div class="textUnitsFemale">
+          {{this.getUnit()}}
+        </div>
+      </span>
+      <!---->
       <span *ngSwitchDefault>
         <div class="textValueFemale">
           {{this.getNumber()}}
@@ -92,7 +132,7 @@
     </span>
 
     <div class="textNameFemale">
-        {{this.name}}
+        {{this.getName()}}
     </div>
 </div>
 
@@ -108,8 +148,8 @@
         on/off
       </div>
       <div class="textNameMale">
-        <span *ngIf="this.value" style="color:yellow;"> {{this.name}} </span>
-        <span *ngIf="!this.value"> {{this.name}} </span>
+        <span *ngIf="this.value" style="color:yellow;"> {{this.getName()}} </span>
+        <span *ngIf="!this.value"> {{this.getName()}} </span>
       </div>
     </span>
     <!---->
@@ -121,7 +161,7 @@
         {{this.getUnit()}}
      </div>
       <div class="textNameMale">
-          {{this.name}}
+          {{this.getName()}}
       </div>
     </span>
   </span>

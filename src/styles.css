@@ -297,7 +297,7 @@ app-gateway-dashboard-component {
   top: 20%;
   left: 60%;
   transform: translate(-50%, -50%);
-  font-size: 2.0vw;
+  font-size: 1.9vw;
     /* 100 = viewport width, as 1vw = 1/100th of that
        So if the container is 50% of viewport (as here)
        then factor that into how you want it to size.
@@ -319,7 +319,7 @@ app-gateway-dashboard-component {
   left: 50%;
   transform: translateX(-50%);
   bottom: 5%;
-  font-size: 1.5vw;
+  font-size: 1.4vw;
     /* 100 = viewport width, as 1vw = 1/100th of that
        So if the container is 50% of viewport (as here)
        then factor that into how you want it to size.
@@ -425,7 +425,6 @@ app-gateway-dashboard-component {
   transform: translate(-50%, -50%);
   font-size: 1.5vw;
 
-
 }
 
 .radioStyleMale {
@@ -437,6 +436,4 @@ app-gateway-dashboard-component {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.5vw;
-
-
 }

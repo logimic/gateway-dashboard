@@ -73,7 +73,16 @@ export class GatewayDashboardComponent {
         return '#F8C471';
 
       } else if (atype === 'RelativeHumidity') {
-        return '#76D7C4';
+        return '#48C9B0';
+
+      } else if (atype === 'Concentration') {
+        return '#F0B27A';
+
+      } else if (atype === 'Voltage') {
+        return '#B2BABB';
+
+      } else if (atype === 'SoundPressureLevel') {
+        return '#82E0AA';
 
       } else  {
         return '#C39BD3';
@@ -94,13 +103,24 @@ export class GatewayDashboardComponent {
 
       if (atype.search('Acceleration') !== -1) {
         return false;
+        // return true;
       } else if (atype.search('BinaryData') !== -1) {
         return false;
       } else if (atype.search('Time') !== -1) {
         return false;
       } else if (atype.search('Frequency') !== -1) {
         return false;
+      } else if (atype.search('Current') !== -1) {
+        return false;
+      } else if (atype.search('Power') !== -1) {
+        return false;
+      } else if (atype.search('Undef') !== -1) {
+        return false;
+      } else if (atype.search('Voltage') !== -1) {
+        return true;
       }
+
+
 
 
 
