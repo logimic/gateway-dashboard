@@ -1,61 +1,59 @@
 <div *ngIf="this.skin === 'Female'">
 
     <span *ngIf="nFaces > 1">
-        <img class="imgSymbolFemale" src="./theme/people.png" alt="Lights"> 
+        <img class="imgSymbolFemale" src="./theme/people.png" alt="Lights">
     </span>
 
     <span *ngIf="nFaces === 1">
         <span *ngIf="isMale(0)">
-            <img class="imgSymbolFemale" src="./theme/male.png" alt="Lights"> 
+            <img class="imgSymbolFemale" src="./theme/male.png" alt="Lights">
         </span>
         <span *ngIf="!isMale(0)">
-            <img class="imgSymbolFemale" src="./theme/female.png" alt="Lights"> 
+            <img class="imgSymbolFemale" src="./theme/female.png" alt="Lights">
         </span>
     </span>
 
-    <div class="textValueFemale">     
-        {{this.nFaces}} 
+    <div class="textValueFemale">
+        {{this.nFaces}}
     </div>
 
-    <div class="textNameFemale"> 
+    <div class="textNameFemale">
         {{this.name}}
     </div>
 
 </div>
 
 <div *ngIf="this.skin === 'Male'">
-    
-    
-        <span *ngIf="nFaces === 1">
-            <div class="textValueMale"> 
+          <span *ngIf="nFaces === 1">
+            <div class="textValueMale">
                 <span *ngIf="isMale(0)" style="color:yellow;">
-                M
+                male
                 </span>
                 <span *ngIf="!isMale(0)" style="color:yellow;">
-                F
+                female
                 </span>
             </div>
-            <div class="textNameMale" style="color:yellow;"> 
+            <div class="textNameMale" style="color:yellow;">
                 {{this.name}}
-            </div>        
+            </div>
         </span>
 
         <span *ngIf="nFaces > 1">
-            <div class="textValueMale"> 
-            ... {{this.nFaces}} 
+            <div class="textValueMale" style="color:rgb(49, 197, 216);">
+            {{this.nFaces}} ...
             </div>
-            <div class="textNameMale"> 
+            <div class="textNameMale" style="color:rgb(49, 197, 216);">
                 {{this.name}}
-            </div>            
+            </div>
         </span>
 
         <span *ngIf="nFaces < 1">
-            <div class="textValueMale"> 
-            ... 
+            <div class="textValueMale">
+            none
             </div>
-            <div class="textNameMale"> 
+            <div class="textNameMale">
                 {{this.name}}
-            </div>            
-        </span>        
-    
+            </div>
+        </span>
+
 </div>

@@ -16,7 +16,7 @@ export class GatewayDashboardComponent {
 
     constructor(protected service: GatewayService, protected model: GatewayModel) {
     }
-
+/*
     public getNumbertTiles(): number {
 
         const nTemps = this.model.thingSpace.data.thermometer.length;
@@ -36,23 +36,14 @@ export class GatewayDashboardComponent {
         num = this.model.thingStatus.data.things.length;
 
         return 1 + num + nFaces + nAdmins;
-/*
-        for (let i = 0; i < this.model.thingStatus.data.things.length; i++) {
-
-          if (item.)
-
-        }
-
-        return nTemps + nOutputs + nFaces + nAdmins;
-        */
     }
-
+*/
     public GetNumTiles(): number {
 
       const nColumns = this. model.cfgDashboard.numberColumns;
       const nRows = this. model.cfgDashboard.numberRows;
 
-      return (nColumns * nRows) - 5 - 1;
+      return (nColumns * nRows) - 6 - 1;
     }
 
     public getHeigth(): string {
@@ -62,7 +53,7 @@ export class GatewayDashboardComponent {
         const nColumns = this. model.cfgDashboard.numberColumns;
         const nRows = this. model.cfgDashboard.numberRows;
 
-        const nTiles = this.getNumbertTiles();
+       // const nTiles = this.getNumbertTiles();
 
         const rows = nRows; // Math.ceil(nTiles / nColumns);
 
@@ -88,11 +79,22 @@ export class GatewayDashboardComponent {
 
     public isValidThing (name: string): boolean {
 
-      if (name.search('faceRecog') === -1) {
-        return true;
-      } else {
+      if (name.search('faceRecog') !== -1) {
         return false;
       }
+
+      return true;
+    }
+
+    public isValidThingType (atype: string): boolean {
+
+      if (atype.search('Acceleration') !== -1) {
+        return false;
+      } else if (atype.search('BinaryData') !== -1) {
+        return false;
+      }
+
+      return true;
     }
 
     public count() {

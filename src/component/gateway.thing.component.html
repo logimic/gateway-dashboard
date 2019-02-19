@@ -1,3 +1,4 @@
+<canvas #myCanvas ></canvas>
 <div *ngIf="this.skin === 'Female'">
 
    <span [ngSwitch]="this.atype">
@@ -20,13 +21,59 @@
       <span *ngSwitchCase="'Temperature'">
         <img class="imgSymbolFemale" src="./theme/temp.png" alt="Lights">
         <div class="textValueFemale">
-          {{this.value}} {{this.getUnit()}}
+          {{this.getNumber()}}
+        </div>
+        <div class="textUnitsFemale">
+          {{this.getUnit()}}
+        </div>
+      </span>
+      <!---->
+      <span *ngSwitchCase="'RelativeHumidity'">
+        <img class="imgSymbolFemale" src="./theme/humidity.png" alt="Lights">
+        <div class="textValueFemale">
+          {{this.getNumber()}}
+        </div>
+        <div class="textUnitsFemale">
+          {{this.getUnit()}}
+        </div>
+      </span>
+      <!---->
+      <span *ngSwitchCase="'AtmosphericPressure'">
+        <img class="imgSymbolFemale" src="./theme/atmPressure.png" alt="Lights">
+        <div class="textValueFemale">
+          {{this.getNumber()}}
+        </div>
+        <div class="textUnitsFemale">
+          {{this.getUnit()}}
+        </div>
+      </span>
+      <!---->
+      <span *ngSwitchCase="'SoundPressureLevel'">
+        <img class="imgSymbolFemale" src="./theme/soundPressure.png" alt="Lights">
+        <div class="textValueFemale">
+          {{this.getNumber()}}
+        </div>
+        <div class="textUnitsFemale">
+          {{this.getUnit()}}
+        </div>
+      </span>
+      <!---->
+      <span *ngSwitchCase="'PowerFactor'">
+        <img class="imgSymbolFemale" src="./theme/powerFactor.png" alt="Lights">
+        <div class="textValueFemale">
+          {{this.getNumber()}}
+        </div>
+        <div class="textUnitsFemale">
+          {{this.getUnit()}}
         </div>
       </span>
       <!---->
       <span *ngSwitchDefault>
         <div class="textValueFemale">
-          {{this.value}}{{this.getUnit()}}
+          {{this.getNumber()}}
+        </div>
+        <div class="textUnitsFemale">
+          {{this.getUnit()}}
         </div>
       </span>
     </span>
@@ -51,20 +98,13 @@
       </div>
     </span>
     <!---->
-    <span *ngSwitchCase="'Temperature'">
-      <div class="textValueMale">
-        {{this.value}} {{this.getUnit()}}
-      </div>
-      <div class="textNameMale">
-        {{this.name}}
-      </div>
-    </span>
-    <!---->
     <span *ngSwitchDefault>
       <div class="textValueMale">
-          {{this.value}} {{this.getUnit()}}
+          {{this.getNumber()}}
       </div>
-
+      <div class="textUnitsMale">
+        {{this.getUnit()}}
+     </div>
       <div class="textNameMale">
           {{this.name}}
       </div>

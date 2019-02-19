@@ -1,20 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { GatewayModel} from '../gateway/gateway.model';
 import { GatewayService } from '../gateway/gateway.service';
-/*
-export interface Skin {
-    color: string;
-    cols: number;
-    rows: number;
-    text: string;
-}
-*/
+
 @Component({
     selector: 'app-gateway-thing-component',
     templateUrl: 'gateway.thing.component.html',
     styleUrls: ['gateway.thing.component.css']
 })
-export class GatewayThingComponent {
+export class GatewayThingComponent implements AfterViewInit {
 
     @Input()
     public skin = 'Female';
@@ -31,7 +24,29 @@ export class GatewayThingComponent {
     @Input()
     public unit = '...';
 
+    @ViewChild('myCanvas') myCanvas: ElementRef;
+
+    public context: CanvasRenderingContext2D;
+
     constructor() {
+    }
+
+    ngAfterViewInit() {
+
+    //  if (this.skin === 'Male') {
+
+          this.context = (<HTMLCanvasElement>this.myCanvas.nativeElement).getContext('2d');
+          // this.draw();
+    //  }
+   }
+
+    private draw() {
+      if (this.skin === 'Female') {
+        this.context.beginPath();
+        this.context.moveTo(0, 0);
+        this.context.lineTo(20, 20);
+        this.context.stroke();
+      }
     }
 
     public getUnit (): string {
@@ -98,7 +113,11 @@ export class GatewayThingComponent {
 
       }
 
-      return '...';
+      return ' ';
 
+    }
+
+    public getNumber(): number {
+      return parseFloat(parseFloat(this.value.toString()).toFixed(2));
     }
 }

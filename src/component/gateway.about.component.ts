@@ -13,7 +13,7 @@ export class GatewayAboutComponent {
     public skin = 'Female';
 
     @Input()
-    public logo = './theme/Logimic_logo_full.png';    
+    public logo = './theme/Logimic_logo_full.png';
 
     constructor() {
     }
