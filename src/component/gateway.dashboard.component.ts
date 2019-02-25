@@ -92,18 +92,10 @@ export class GatewayDashboardComponent {
 
     public isValidThing (name: string): boolean {
 
-      if (name.search('faceRecog') !== -1) {
-        return false;
-
-      } else if (name.search('cooper/Extra-low_voltage') !== -1) {
-        return false;
-
-      } else if (name.search('up2/ledg') !== -1) {
-        return false;
-
-      } else if (name.search('up2/ledr') !== -1) {
-        return false;
-
+      for (const disName of this.model.cfgDashboard.disableNames) {
+        if (name.search(disName) !== -1) {
+          return false;
+        }
       }
 
       return true;
@@ -111,28 +103,22 @@ export class GatewayDashboardComponent {
 
     public isValidThingType (atype: string): boolean {
 
-      if (atype.search('Acceleration') !== -1) {
-        return false;
-        // return true;
-      } else if (atype.search('BinaryData') !== -1) {
-        return false;
-      } else if (atype.search('Time') !== -1) {
-        return false;
-      } else if (atype.search('Frequency') !== -1) {
-        return false;
-      } else if (atype.search('Power') !== -1) {
-        return false;
-      } else if (atype.search('PowerFactor') !== -1) {
-        return false;
-      }  else if (atype.search('Undef') !== -1) {
-        return false;
-      } else if (atype.search('Consumption') !== -1) {
-        return false;
-      } else if (atype.search('DateTime') !== -1) {
-        return false;
+      for (const aTypeItem of this.model.cfgDashboard.disableAtypes) {
+        if (atype.search(aTypeItem) !== -1) {
+          return false;
+        }
       }
 
       return true;
+    }
+
+    public isTimeTile() {
+
+      if(this.model.cfgDashboard.timeTile != null) {
+        return this.model.cfgDashboard.timeTile;
+      }
+
+      return false;
     }
 
     public count() {

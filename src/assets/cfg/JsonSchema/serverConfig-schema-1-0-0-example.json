@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://example.com/example.json",
+  "self": {
+    "vendor": "com.logimic",
+    "name": "serverConfig",
+    "format": "jsonschema",
+    "version": "1-0-0"
+  },
+  "wsIP": "127.0.0.1",
+  "wsPort": "1341",
+  "detectServer": false
+}

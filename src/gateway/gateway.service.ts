@@ -1,7 +1,8 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { ServerStatus, ConfigWS, ConfigDashboard } from './gateway.model';
+import { ServerStatus, ConfigWS } from './gateway.model';
 import { Http } from '@angular/http';
 import * as oegwThings from './oegw-things';
+import * as dashboardCfg from './dashboard-cfg';
 
 
 @Injectable()
@@ -18,10 +19,14 @@ export class GatewayService {
         valid: false
     };
 
-    public cfgDashboard: ConfigDashboard = {
+    public cfgDashboard: dashboardCfg.DashboardConfigSchema100 = {
         numberColumns: 3,
         numberRows: 3,
-        initSkin: 'Female'
+        initSkin: 'Female',
+        disableNames: [
+          'aaa',
+          'ssss'
+        ]
     };
 
     private connection: WebSocket = null;
@@ -30,7 +35,7 @@ export class GatewayService {
     // public emitorMessage2$: EventEmitter<String> = new EventEmitter();
     public emitorMessage$: EventEmitter<any> = new EventEmitter();
     public emitorWsOegw$: EventEmitter<ConfigWS> = new EventEmitter();
-    public emitorConfigDashboard$: EventEmitter<ConfigDashboard> = new EventEmitter();
+    public emitorConfigDashboard$: EventEmitter<dashboardCfg.DashboardConfigSchema100> = new EventEmitter();
     public emitorThingSpace$: EventEmitter<oegwThings.ThingSpace> = new EventEmitter();
 
     constructor(protected http: Http) {
@@ -65,11 +70,8 @@ export class GatewayService {
     loadConfigDashboard() {
         const path = './assets/cfg/dashboardConfig.json';
         this.http.get(path).subscribe(data => {
-            this.cfgDashboard.numberColumns = data.json().numberColumns;
-            this.cfgDashboard.numberRows = data.json().numberRows;
-            this.cfgDashboard.initSkin = data.json().initSkin;
-
-            this.emitorConfigDashboard$.emit(this.cfgDashboard);
+          this.cfgDashboard = data.json();
+          this.emitorConfigDashboard$.emit(this.cfgDashboard);
         });
     }
 

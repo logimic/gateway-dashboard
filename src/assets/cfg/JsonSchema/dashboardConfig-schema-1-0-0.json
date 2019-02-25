@@ -1,0 +1,58 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "http://example.com/example.json",
+    "self": {
+        "vendor": "com.logimic",
+        "name": "serverConfig",
+        "format": "jsonschema",
+        "version": "1-0-0"
+    },
+    "type": "object",
+    "properties": {
+        "numberColumns": {
+            "type": "integer",
+            "description": "Number of tiles columns.",
+            "default": 5
+        },
+        "numberRows": {
+            "type": "integer",
+            "description": "Number of tiles rows.",
+            "default": 5
+        },
+        "initSkin": {
+            "type": "string",
+            "description": "One of predefined skins...",
+            "default": "Male",
+            "enum": [
+                "Male",
+                "Female"
+            ]
+        },
+        "timeTile": {
+            "type": "boolean",
+            "description": "Enable/disable display of time tile.",
+            "default": true
+        },
+        "enableLogo": {
+            "type": "integer",
+            "description": "Number of enabled logos",
+            "default": 2
+        },
+        "disableNames": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "Name of thing.",
+                "default": "bla"
+            }
+        },
+        "disableAtypes": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "Atype of thing.",
+                "default": "Temperature"
+            }
+        }
+    }
+}

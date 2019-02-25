@@ -5,17 +5,23 @@
             <mat-grid-tile>
                 <app-gateway-info-component style="background: #2ecc71;" [skin]="this.model.getSkin()" [online]="this.model.status.onlineStatus"></app-gateway-info-component>
             </mat-grid-tile>
-            <mat-grid-tile>
-              <app-gateway-time-component style="background: #D4EFDF;" [skin]="this.model.getSkin()"></app-gateway-time-component>
-          </mat-grid-tile>
+
+            <span *ngIf="this.isTimeTile() === true">
+              <mat-grid-tile>
+                <app-gateway-time-component style="background: #D4EFDF;" [skin]="this.model.getSkin()"></app-gateway-time-component>
+              </mat-grid-tile>
+            </span>
         </span>
         <span *ngIf="this.model.getSkin() === 'Male'">
             <mat-grid-tile style="background: #423C40;">
                 <app-gateway-info-component style="background: #423C40;" [skin]="this.model.getSkin()" [online]="this.model.status.onlineStatus"></app-gateway-info-component>
             </mat-grid-tile>
-            <mat-grid-tile>
-              <app-gateway-time-component style="background: #423C40;" [skin]="this.model.getSkin()"></app-gateway-time-component>
-          </mat-grid-tile>
+
+            <span *ngIf="this.isTimeTile() === true">
+              <mat-grid-tile>
+                <app-gateway-time-component style="background: #423C40;" [skin]="this.model.getSkin()"></app-gateway-time-component>
+              </mat-grid-tile>
+            </span>
         </span>
     </span>
 

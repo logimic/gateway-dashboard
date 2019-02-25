@@ -9,6 +9,7 @@ import * as oegwThings from './oegw-things';
 import { debugOutputAstAsTypeScript } from '@angular/compiler';
 import { Things } from '../../../../Logimic/gateway-manager/src/gateway/oegw-things';
 import { Face3 } from 'three';
+import * as dashboardCfg from './dashboard-cfg';
 
 export interface ServerStatus {
     cncStatus: number;      // status cnc core
@@ -43,12 +44,13 @@ export interface ConfigWS {
     detectServer: boolean;
     valid: boolean;
 }
-
+/*
 export interface ConfigDashboard {
     numberColumns: number;
     numberRows: number;
     initSkin: string;
 }
+*/
 
 export interface ThingSpaceRecord {
     point: oegwThings.ThingSpace;
@@ -149,10 +151,13 @@ export class GatewayModel  {
         valid: false
     };
 
-    public cfgDashboard: ConfigDashboard = {
+    public cfgDashboard: dashboardCfg.DashboardConfigSchema100 = {
         numberColumns: 4,
         numberRows: 3,
-        initSkin: 'Female'
+        initSkin: 'Female',
+        disableNames: [
+          'none'
+        ]
     };
 
     constructor (protected service: GatewayService) {
@@ -184,12 +189,14 @@ export class GatewayModel  {
         service.emitorConfigDashboard$.subscribe( w => {
             this.cfgDashboard = w;
 
+            //window.alert('MSG' + this.cfgDashboard.disableNames[4]);
+
             // Set init skin
-            if (this.cfgDashboard.initSkin === 'female' || this.cfgDashboard.initSkin === 'Female') {
+            if (this.cfgDashboard.initSkin === 'Female') {
                 this.status.selectedSkin = 'Female';
-            } else if (this.cfgDashboard.initSkin === 'male' || this.cfgDashboard.initSkin === 'Male') {
+            } else if ( this.cfgDashboard.initSkin === 'Male') {
                 this.status.selectedSkin = 'Male';
-            } else if (this.cfgDashboard.initSkin === 'adaptive' || this.cfgDashboard.initSkin === 'Adaptive') {
+            } else if (this.cfgDashboard.initSkin === 'Adaptive') {
                 this.status.selectedSkin = 'Adaptive';
             }
         });

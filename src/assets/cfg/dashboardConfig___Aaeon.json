@@ -6,9 +6,19 @@
     "enableLogo": 2,
     "disableNames": [
       "faceRecog",
+      "cooper/Extra-low_voltage",
       "up2/ledg",
       "up2/ledr"
     ],
     "disableAtypes": [
+      "Acceleration",
+      "BinaryData",
+      "Time",
+      "Frequency",
+      "Power",
+      "PowerFactor",
+      "Undef",
+      "Consumption",
+      "DateTime"
     ]
 }

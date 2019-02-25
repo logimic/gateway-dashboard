@@ -41,12 +41,34 @@ Nice dashboard for OpenEdgeGateway.
 
 ## 3. Configuration
 
-Use configuration JSON if you need any changes.
+Use configuration JSON **..\assets\cfg\dashboardConfig.json** if you need to make a changes of dashboard look or filter out things by name or aType.
 
-1. Change a number of tile columns: Open **www\assets\cfg\dashboardConfig.json** and change number at **numberColumns**.
-
-2. Change default starting skin: Open **www\assets\cfg\dashboardConfig.json** and change **initSkin** to requested skin from dashboard: **Male**, **Female**, **Adaptive**, etc..
-
+```json
+{
+    "numberColumns":5,    
+    "numberRows":5,
+    "initSkin": "Male",
+    "timeTile": true,
+    "enableLogo": 2,
+    "disableNames": [
+      "faceRecog",
+      "cooper/Extra-low_voltage",
+      "up2/ledg",
+      "up2/ledr"
+    ],
+    "disableAtypes": [
+      "Acceleration",
+      "BinaryData",
+      "Time",
+      "Frequency",
+      "Power",
+      "PowerFactor",
+      "Undef",
+      "Consumption",
+      "DateTime"
+    ]
+}
+```
 
 # B. Build from sources
 
