@@ -114,8 +114,17 @@ export class GatewayDashboardComponent {
 
     public isTimeTile() {
 
-      if(this.model.cfgDashboard.timeTile != null) {
+      if(this.model.cfgDashboard.timeTile !== null) {
         return this.model.cfgDashboard.timeTile;
+      }
+
+      return false;
+    }
+
+    public isFacerecogTile() {
+
+      if(this.model.cfgDashboard.facerecogTile !== null) {
+        return this.model.cfgDashboard.facerecogTile;
       }
 
       return false;

@@ -3,6 +3,7 @@
     "numberRows":5,
     "initSkin": "Male",
     "timeTile": true,
+    "facerecogTile": true,
     "enableLogo": 2,
     "disableNames": [
       "faceRecog",

@@ -22,6 +22,10 @@ export interface DashboardConfigSchema100 {
    */
   timeTile?: boolean;
   /**
+   * Enable/disable display face recognition tile.
+   */
+  facerecogTile?: boolean;
+  /**
    * Number of enabled logos
    */
   enableLogo?: number;

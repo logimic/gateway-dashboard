@@ -33,6 +33,11 @@
             "description": "Enable/disable display of time tile.",
             "default": true
         },
+        "facerecogTile": {
+            "type": "boolean",
+            "description": "Enable/disable display face recognition tile.",
+            "default": false
+        },
         "enableLogo": {
             "type": "integer",
             "description": "Number of enabled logos",

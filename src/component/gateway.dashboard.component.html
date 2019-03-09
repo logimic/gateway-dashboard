@@ -35,12 +35,12 @@
     <span *ngIf="this.model.status.onlineStatus === true">
 
         <!-- Face recognition... -->
-        <span *ngIf="this.model.getSkin() === 'Female'">
+        <span *ngIf="this.model.getSkin() === 'Female' && this.isFacerecogTile()">
             <mat-grid-tile>
                 <app-gateway-facerec-component style="background: #F9E79F;" [skin]="this.model.getSkin()" [name]="'FaceRecognition'" [nFaces]="this.model.faces.length"></app-gateway-facerec-component>
             </mat-grid-tile>
         </span>
-        <span *ngIf="this.model.getSkin() === 'Male'">
+        <span *ngIf="this.model.getSkin() === 'Male' && this.isFacerecogTile()">
             <mat-grid-tile style="background: #423C40;">
                 <app-gateway-facerec-component style="background: #423C40;" [skin]="this.model.getSkin()" [name]="'FaceRecognition'" [nFaces]="this.model.faces.length"></app-gateway-facerec-component>
             </mat-grid-tile>
